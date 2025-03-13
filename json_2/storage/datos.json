@@ -1,0 +1,52 @@
+{
+    "datos": [
+        {
+            "id": 1,
+            "titulo": "iPhone X",
+            "descripcion": "Último modelo de gama alta, de la prestigiosa marca de Apple. Cuenta con cámara de alta resolución.",
+            "imagen": "P001.jpg",
+            "precio": 10000.00,
+            "stock": 120
+        },
+        {
+            "id": 2,
+            "titulo": "iPad",
+            "descripcion": "El iPad PRO es ideal para llevar archivos y documentos a cualquier lado, cuenta con garantía.",
+            "imagen": "P002.jpg",
+            "precio": 7000.00,
+            "stock": 10
+        },
+        {
+            "id": 3,
+            "titulo": "Nexus xD101",
+            "descripcion": "Celular Nexus de amplia pantalla y con sistema operativo Android 9.0 además de variadas prestaciones.",
+            "imagen": "P003.jpg",
+            "precio": 5030.00,
+            "stock": 51
+        },
+        {
+            "id": 4,
+            "titulo": "Samsung Galaxy",
+            "descripcion": "El Samsung Galaxy es un móvil con la tecnología 5G de última generación.",
+            "imagen": "P004.jpg",
+            "precio": 9000.00,
+            "stock": 45
+        },
+        {
+            "id": 5,
+            "titulo": "Pixel 4",
+            "descripcion": "El Pixel 4 es el móvil de Google con una de las mejores cámaras del mundo.",
+            "imagen": "P005.jpg",
+            "precio": 8500.00,
+            "stock": 2
+        },
+        {
+            "id": 6,
+            "titulo": "LG V60 ThinQ",
+            "descripcion": "LG V60 es un telefóno ideal para revisar redes sociales al momento, capturar imagenes y vídeos.",
+            "imagen": "P006.jpg",
+            "precio": 3000.00,
+            "stock": 33
+        }
+    ]
+}

@@ -1,0 +1,30 @@
+.products{
+    margin-top: 60px;
+    margin-bottom: 120px;
+
+    display: grid;
+    grid-template-columns: 25% 25% 25%;
+    column-gap: 20px;
+    width: 100%;
+    justify-content: center;
+    justify-items: center;
+    text-align: justify;
+}
+
+.product{
+    margin-top: 50px;
+    justify-content: center;
+    align-items: center;
+}
+
+.titulo-p{
+    color:rgb(29, 28, 28);
+}
+
+img{
+    transition: transform 0.3s ease-in-out;
+}
+
+img:hover{
+    transform: scale(1.1);
+}
