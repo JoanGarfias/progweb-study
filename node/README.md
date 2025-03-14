@@ -11,3 +11,8 @@
 "test": "json-server --watch db.json"
 ```
 
+- Corremos el servidor local
+
+```bash
+npm run test
+```
