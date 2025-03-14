@@ -1,0 +1,19 @@
+{
+    "carros":[
+    {
+        "id": 1,
+        "modelo": "Sentra",
+        "año": 2010
+    },
+    {
+        "id": 2,
+        "modelo": "Versa",
+        "año": 2015
+    },
+    {
+        "id": 3,
+        "modelo": "Xtrail",
+        "año": 2020
+    }
+    ]
+}
