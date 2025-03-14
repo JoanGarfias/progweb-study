@@ -15,5 +15,15 @@
         "modelo": "Xtrail",
         "año": 2020
     }
+    ],
+    "post": [
+    {
+        "id": 1,
+        "contenido": "Hola soy Joan"
+    },
+    {
+        "id": 2,
+        "contenido": "Estoy ansioso de veras"
+    }
     ]
 }
