@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "json-server --watch db.json"
+    "start": "json-server --watch db.json"
   },
   "keywords": [],
   "author": "",
