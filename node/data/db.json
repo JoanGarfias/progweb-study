@@ -1,29 +1,34 @@
 {
-    "carros":[
+  "carros": [
     {
-        "id": 1,
-        "modelo": "Sentra",
-        "año": 2010
+      "modelo": "Kirappp",
+      "año": "",
+      "id": "1"
     },
     {
-        "id": 2,
-        "modelo": "Versa",
-        "año": 2015
+      "id": "2",
+      "modelo": "Versa",
+      "año": 2015
     },
     {
-        "id": 3,
-        "modelo": "Xtrail",
-        "año": 2020
+      "id": "3",
+      "modelo": "Xtrail",
+      "año": 2020
+    },
+    {
+      "id": "637f",
+      "modelo": "Bronco",
+      "año": "2005"
     }
-    ],
-    "post": [
+  ],
+  "post": [
     {
-        "id": 1,
-        "contenido": "Hola soy Joan"
+      "id": "1",
+      "contenido": "Hola soy Joan"
     },
     {
-        "id": 2,
-        "contenido": "Estoy ansioso de veras"
+      "id": "2",
+      "contenido": "Estoy ansioso de veras"
     }
-    ]
+  ]
 }

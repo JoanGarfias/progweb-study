@@ -8,7 +8,7 @@
 
 - Cambiamos la siguiente linea de código: 
 ```javascript
-"test": "json-server --watch db.json"
+"test": "json-server --watch data/db.json"
 ```
 
 - Corremos el servidor local

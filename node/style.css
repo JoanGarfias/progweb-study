@@ -1,0 +1,15 @@
+.text-center{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+
+button{
+    width: 120px;
+    height: 40px;
+    margin-right: 10px;
+    background-color:cadetblue;
+    color:white;
+    font-size: large;
+}
