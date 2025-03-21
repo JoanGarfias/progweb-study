@@ -1,8 +1,8 @@
 {
   "carros": [
     {
-      "modelo": "Kirappp",
-      "año": "",
+      "modelo": "Jetta",
+      "año": 2021,
       "id": "1"
     },
     {
@@ -14,11 +14,6 @@
       "id": "3",
       "modelo": "Xtrail",
       "año": 2020
-    },
-    {
-      "id": "637f",
-      "modelo": "Bronco",
-      "año": "2005"
     }
   ],
   "post": [

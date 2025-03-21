@@ -8,11 +8,11 @@
 
 - Cambiamos la siguiente linea de código: 
 ```javascript
-"test": "json-server --watch data/db.json"
+"start": "json-server --watch data/db.json"
 ```
 
 - Corremos el servidor local
 
 ```bash
-npm run test
+npm run start
 ```
