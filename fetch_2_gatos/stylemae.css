@@ -1,0 +1,68 @@
+.titulo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    font-size: 40px;
+    color:rgb(62, 169, 169);
+    margin-top: 100px;
+    margin-bottom: 40px;
+}
+
+#btn-mae{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+
+    font-size: 25px;
+    color:rgb(46, 79, 152);
+    background-color: bisque;
+    margin-top: 35px;
+}
+
+.btn{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+}
+
+img{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    border-radius: 10px;
+    border-color:rgb(46, 79, 152);
+    border-style:dashed;
+}
+
+.contenedor{
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+    row-gap: 10px;
+}
+
+.contenedor-msg{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+
+.mensaje{
+    display: none;
+    color:rgb(151, 35, 35);
+    font-size: 25px;
+}
