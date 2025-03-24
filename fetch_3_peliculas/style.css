@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    font-family: "Poppins", sans-serif;
+}
+
+.titulo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    font-size: 40px;
+    color:rgb(51, 94, 94);
+    margin-top: 100px;
+    margin-bottom: 40px;
+}
+
+#btn-mae{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+
+    font-size: 20px;
+    color:rgb(46, 79, 152);
+    background-color: bisque;
+}
+
+.btn{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+}
+
+img{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    border-radius: 10px;
+    border-color:rgb(46, 79, 152);
+    border-style:dashed;
+}
+
+img:hover{
+    transform: scale(1.1);
+}
+
+.contenedor{
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    row-gap: 20px;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.poster{
+    display: flex;
+    flex-direction: column;
+}
+
+img{
+    width: 300px;
+    height: 400px;
+}
+
+.contenedor-msg{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+
+.mensaje{
+    display: none;
+    color:rgb(151, 35, 35);
+    font-size: 25px;
+}
+
+
+#Buscador {
+    background: url(https://cdn0.iconfinder.com/data/icons/slim-square-icons-basics/100/basics-19-32.png) no-repeat 0px 5px;
+    background-size: 24px;
+    width: 500px;
+    border: transparent;
+    border-bottom: solid 1px #ccc;
+    padding: 10px 10px 10px 30px;
+    outline: none;
+  }
+
+.buscador{
+    display: flex;
+    margin-left: 45%;
+}
