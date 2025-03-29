@@ -1,9 +1,0 @@
-.navbar{
-    height: 100px; /* Aumenta la altura del navbar */
-    font-size: 1.2rem; /* Aumenta el tamaño del texto */
-}
-.navbar-brand img a{
-    width: 50px; /* Aumenta el tamaño del logo */
-    height: 50px;
-    object-fit: contain;
-}
