@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link href="style.css" rel="stylesheet">
-    <title>API Peliculas</title>
+    <title>Detalles de pelicula</title>
 </head>
 <body>
 
@@ -18,7 +17,7 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Populares</a>
@@ -37,20 +36,32 @@
         </div>
       </nav>
 
-    <div class="container py-3">
-        <h1 class="h3 text-center">Busca tu pelicula favorita...</h1>
-        <div class="row">
-            <form class="d-flex" role="search">
-                <input class="form-control me-2 movieInput" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success btnBuscar" type="submit">Buscar</button>
-            </form>
-        </div>
-    </div>
-
     <div class="container py-2">
-        <div class="row row-cols-1 row-cols-md-3 catalogo">
+        <div class="row row-cols-1 row-cols-md-2">
+            <div class="izq">
+                <img class="img-fluid" src="https://http2.mlstatic.com/D_NQ_NP_2X_709960-MCO70390203981_072023-F.webp">
+            </div>
+            <div class="col py-5 px-5">
+                <h2 class="h2">Titulo de la película</h1>
+                <div class="container">
+                    <div class="row row-cols-2">
+                        <p class="h5">💬 ES</p>
+                        <p class="h5 ml-30">⭐4.9</p>
+                    </div>
+                </div>
+                <p><em>2020/12/03</em></p>
+                <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum veniam aliquam sunt quis accusantium nemo nisi necessitatibus maiores temporibus quo laborum facere consequuntur quibusdam pariatur officia nobis rem assumenda laboriosam cum quia, soluta amet distinctio iusto voluptas. Sunt, aut quam consectetur dolorum ad earum pariatur maiores debitis delectus quo modi blanditiis corrupti possimus dolorem, autem similique ratione repudiandae sequi soluta ipsum ducimus nesciunt! Officia quisquam eaque ipsum asperiores in sunt eos eveniet amet facilis? Nesciunt ea aspernatur tempora sunt fugit distinctio omnis, mollitia praesentium odit! Beatae, quam.</P>        
+            </div>
         </div>
     </div>
-    <script src="script.js"></script>
+    
+
+    <style>
+        img{
+            width: 70%;
+        }
+    </style>
+
+    
 </body>
 </html>
