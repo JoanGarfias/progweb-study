@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-DQvkBjpPgn7RC31MCQoOeC9TI2kdqa4+BSgNMNj8v77fdC77Kj5zpWFTJaaAoMbC" crossorigin="anonymous">
+    <link href="style.css" rel="stylesheet"> 
+    <title>Poke API</title>
+</head>
+<body>
+    
+    <div class="container title pt-5 pb-2">
+        <div class="row row-cols-1">
+            <h1 class="col h1">Buscador de Pokemon</h1>
+        </div>
+    </div>
+
+    <div class="container py-3">
+        <h1 class="h3 text-center">Busca tu pelicula favorita...</h1>
+        <div class="row">
+            <form class="d-flex" role="search">
+                <input class="form-control me-2 pokemonInput" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success btnBuscar" type="submit">Buscar</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="container result">
+        <div class="row row-cols-1 poke">       
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
