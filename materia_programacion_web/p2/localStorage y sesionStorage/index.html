@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>LocalStorage - SesionStorage</title>
+</head>
+<body>
+    <form class="container py-5">
+        <div class="mb-3">
+          <label for="" class="form-label">Dato local:</label>
+          <input type="text" class="form-control" id="DatoLocal" aria-describedby="emailHelp">
+          <div id="help" class="form-text">Esta información se guardará aunque cierres el navegador.</div>
+        </div>
+        <div class="mb-3">
+          <label for="" class="form-label">Dato de sesión</label>
+          <input type="text" class="form-control" id="DatoSesion">
+          <div id="help" class="form-text">Esta información guardará mientras esté la ventana abierta.</div>
+        </div>
+        <button type="submit" id="guardar" class="btn btn-primary">Guardar</button>
+        <button type="submit" id="cargar" class="btn btn-primary">Cargar</button>
+      </form>
+</body>
+<script src="script.js"></script>
+</html>
