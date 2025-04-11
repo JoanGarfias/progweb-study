@@ -11,6 +11,8 @@ let l_max = document.querySelector("#temperaturaMax");
 let l_min = document.querySelector("#temperaturaMin");
 let l_icono = document.querySelector("#icono");
 let l_velocidad = document.querySelector("#velocidad");
+let l_descripcion = document.querySelector("#descripcion");
+
 
 const apikey = '04810ec7aeb9b5d1e25e7a67d4b34668';
 
@@ -67,6 +69,9 @@ function geolocationSucess(position){
             data.weather.forEach(w => {
                 const img = `https://openweathermap.org/img/wn/${w.icon}@2x.png`; 
                 l_icono.src = `${img}`
+                const p = document.createElement("p");
+                p.innerHTML = w.description;
+                l_descripcion.appendChild(p);
             });
         })
         .catch(error => {
@@ -92,6 +97,9 @@ function geolocationSucess(position){
             data.weather.forEach(w => {
                 const img = `https://openweathermap.org/img/wn/${w.icon}@2x.png`;
                 l_icono.src = `${img}`
+                const p = document.createElement("p");
+                p.innerHTML = w.description;
+                l_descripcion.appendChild(p);
             });
         })
         .catch(error => {
