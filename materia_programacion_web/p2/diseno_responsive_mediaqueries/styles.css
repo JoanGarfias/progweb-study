@@ -1,0 +1,121 @@
+/* Estilos base */
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background: white;
+    color: black;
+    text-align: center;
+  }
+  
+  .container {
+    padding: 2rem;
+  }
+  
+  /* 1. Mínimo de ancho (para pantallas grandes) */
+  @media screen and (min-width: 1024px) {
+    body {
+      background-color: lightblue;
+    }
+  
+    .container {
+      font-size: 1.5rem;
+    }
+  }
+  
+  /* 2. Máximo de ancho (pantallas pequeñas) */
+  @media screen and (max-width: 600px) {
+    body {
+      background-color: lightcoral;
+    }
+  
+    .container {
+      font-size: 1rem;
+    }
+  }
+  
+  /* 3. Altura mínima */
+  @media screen and (min-height: 700px) {
+    .container {
+      padding-top: 5rem;
+    }
+  }
+  
+  /* 4. Orientación del dispositivo */
+  @media screen and (orientation: landscape) {
+    body {
+      border-top: 5px solid green;
+    }
+  }
+  
+  /* 5. Aspect Ratio 
+  Esta media query se activa solo si la pantalla tiene
+  una proporción de 16:9, como muchas laptops,
+  monitores y pantallas de TV.
+  */
+  @media screen and (aspect-ratio: 16/9) {
+    .container {
+      border: 3px dashed purple;
+    }
+  }
+  
+  /* 6. Alta resolución (por ejemplo: Retina Display) 
+    Se activa si la pantalla tiene una resolución
+    de 2dppx (dots per pixel) o más.
+    Esto ocurre en pantallas Retina o HD, como las de
+    muchos celulares y MacBooks.
+  */
+  @media screen and (min-resolution: 2dppx) {
+    body {
+      background-image: url("img/high-res-bg.jpg");
+      background-size: cover;
+    }
+  }
+  
+  /* 7. Usuario puede usar hover 
+  Se activa si el dispositivo permite hacer hover (pasar el cursor sobre un elemento).
+  Normalmente, esto solo es posible en computadoras con mouse o touchpad.
+  */
+  @media (hover: hover) {
+    a:hover {
+      color: red;
+    }
+  }
+  
+  /* 8. Tipo de puntero (coarse para táctil, fine para mouse) 
+  Se activa si el puntero del dispositivo es grueso (coarse),
+  es decir, táctil (como en tablets y teléfonos).
+  */
+  @media (pointer: coarse) {
+    body::after {
+      content: "Pantalla táctil detectada";
+      display: block;
+      margin-top: 1rem;
+      font-size: 1rem;
+      color: blue;
+    }
+  }
+  
+  /* 9. Modo oscuro del sistema 
+  Detecta si el usuario tiene su sistema operativo o navegador en modo oscuro.
+  */
+  @media (prefers-color-scheme: dark) {
+    body {
+      background: #121212;
+      color: #f0f0f0;
+    }
+  }
+  
+  /* 10. Aplicación en modo standalone (como PWA) 
+  Se activa cuando una web es usada como una aplicación instalada (PWA), y no dentro del navegador.
+  */
+  @media (display-mode: standalone) {
+    body::before {
+      content: "App en modo standalone";
+      display: block;
+      background: gold;
+      padding: 1rem;
+      font-weight: bold;
+    }
+  }
+  
