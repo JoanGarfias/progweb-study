@@ -67,7 +67,8 @@ function geolocationSucess(position){
             l_nivelmar.innerHTML = data.main.sea_level + "m";
             l_velocidad.innerHTML = data.wind.speed + " km/h";
             data.weather.forEach(w => {
-                const img = `https://openweathermap.org/img/wn/${w.icon}@2x.png`; 
+                //ttps://openweathermap.org/img/wn/${w.icon}@2x.png`; 
+                const img = getImage(w.main);
                 l_icono.src = `${img}`
                 const p = document.createElement("p");
                 p.innerHTML = w.description;
@@ -95,7 +96,8 @@ function geolocationSucess(position){
             l_nivelmar.innerHTML = data.main.sea_level + "m";
             l_velocidad.innerHTML = data.wind.speed + " km/h";
             data.weather.forEach(w => {
-                const img = `https://openweathermap.org/img/wn/${w.icon}@2x.png`;
+                //const img = `https://openweathermap.org/img/wn/${w.icon}@2x.png`;
+                const img = getImage(w.main);
                 l_icono.src = `${img}`
                 const p = document.createElement("p");
                 p.innerHTML = w.description;
@@ -124,4 +126,19 @@ function geolocationFailure(positionError){
             alert("Hubo un error inesperado.");
             break;
     }
+}
+
+const weatherImageMap = {
+    "Thunderstorm": "img/day.svg",
+    "Clouds": "img/cloudy-day-1.svg",
+    "Drizzle": "img/rainy-2.svg",
+    "Rain": "img/rainy-7.svg",
+    "Snow": "img/snowy-6.svg",
+    "Thunderstorm": "img/thunder.svg"
+};
+  
+function getImage(id) {
+    const imagePath = weatherImageMap[id];
+
+    return imagePath ?? "img/weather.svg";
 }
