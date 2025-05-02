@@ -1,10 +1,6 @@
 const CACHE_NAME = "v0_pwa_ejemplo",
     urlsToCache = [
         './',
-        'https://fonts.googleapis.com/css2?family=Raleway:400,700',
-        'https://fonts.gstatic.com/s/raleway/v1/0n8c4g2v3a5x7e6f4g.woff2',
-        'https://use.fontawesome.com/releases/v5.15.4/css/all.css',
-        'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css',
         'https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-solid-900.woff2',
         './style.css',
         './img/logo.png',
