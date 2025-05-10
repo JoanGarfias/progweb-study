@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root{
+    --color-primario: #42adca;
+    --color-secundario: #3dcfda;
+    --color-terciario: #141414;
+    --color-cuaternario: #ccc;
+    --color-quintario: #f5f5f5;
+    --font-primario: 'Montserrat', sans-serif;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #141414;
+}
+
+.layout{
+    display: grid;
+    grid-template-areas: 
+        "header"
+        "main"
+        "footer";
+    grid-template-columns: 1fr;
+    grid-template-rows: 2fr 1fr auto;
+    height: 100vh;
+}
+
+header{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    justify-content: space-around;
+    background-image: url(../img/aventura1.jpg);
+    background-size: cover;
+    overflow: hidden;
+    min-height: 100vh;
+}
+
+header .overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 0;
+}
+
+.header * {
+    position: relative;
+    z-index: 1; 
+}
+
+ul{
+    list-style: none;    /* Elimina los bullets */
+    padding: 0;          /* Elimina el padding izquierdo */
+    margin: 0;
+}
+
+a{
+    text-decoration: none;
+    color: #f5f5f5;
+}
+
+li{
+    margin: 0;           /* Opcional: asegura que los <li> no tengan márgenes */
+    padding: 0; 
+}
+
+header nav{
+    width: 80%;
+    display: grid;
+    justify-content: stretch;
+    grid-template-areas:
+        "title espacio opciones"
+        "slider slider slider";
+    grid-template-columns: 20% 20% 60%;
+    grid-template-rows: 82% 15%;
+}
+
+header nav ul{
+    display: grid;
+    grid-area: opciones;
+    grid-template-columns: auto auto auto auto;;
+
+    justify-content: flex-start;
+
+    gap: 3.0rem;
+    padding: 1.5rem;
+    position: relative;
+    z-index: 1; 
+
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 1.1rem;
+    font-weight: bold;
+    font-style: normal;
+
+}
+
+header nav .title{
+    display: grid;
+    grid-area: title;
+    padding: 1rem;
+
+    justify-content: center;
+
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 1.1rem;
+    font-style: normal;
+    color: #42adca;
+    z-index: 1; 
+}
+
+
+
+
+
+
+.indicadores{
+    display: flex;
+    grid-area: slider;
+    justify-content: center;
+    gap: 0.7rem;
+    margin-top: 1rem;
+}
+
+
+.dot{
+    width: 14px;
+    height: 14px;
+    background-color: #ccc;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.dot.active{
+    background-color: #3dcfda;
+}
+
+
+.espacio{
+    display: grid;
+    grid-area: espacio;
+    z-index: 1;
+}
+
+
+.info-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
+.info-section p, .info-section h2{
+    font-family: var(--font-primario);
+    color: var(--color-quintario)
+}
+
+.info-izq, .info-der{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 1rem;
+    gap: 1rem;
+    margin-left: 5rem;
+    margin-right: 5rem;
+}
+
+.info-section .info1, .info-section .info2{
+    flex: 1;
+    display: flex;
+    padding-left: 5rem;
+    height: auto;
+    border-radius: 10px;
+}
+
+.info-section img{
+    flex: 1;
+    width: 35%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.info1 .texto, .info2 .texto{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    justify-content: center;
+    width: 80%;
+    padding: 1rem;
+    font-family: var(--font-primario);
+    color: var(--color-quintario);
+    font-size: 130%;
+}
+
+footer{
+    padding: 2%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-terciario);
+    color: var(--color-quintario);
+}

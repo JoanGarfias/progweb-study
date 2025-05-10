@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Bitácora de aventuras con ubicación, fotos y registros diarios.">
+    <meta name="author" content="Joan Garfias">
+
+    <link rel="preload" as="image" href="./img/aventura1.jpg" type="image/jpg">
+    <link rel="preload" as="image" href="./img/aventura2.jpg" type="image/jpg">
+    <link rel="preload" as="image" href="./img/aventura3.jpg" type="image/jpg">
+
+    <link rel="stylesheet" href="main.css">
+    <title>Adventure : Inicio</title>
+</head>
+<body>
+    <div class="layout">
+        <header>
+            <div class="overlay"></div>
+            <nav class="nav">
+                <div class="title">
+                    <h1>Adventure</h1>
+                </div>
+                <div class="espacio">
+                </div>
+                <ul>
+                    <li>
+                        <a href="index.html">Inicio</a>
+                    </li>
+                    <li>
+                        <a href="index.html">Formulario</a>
+                    </li>
+                    <li>
+                        <a href="index.html">Aventuras</a>
+                    </li>
+                    <li>
+                        <a href="index.html">Contacto</a>
+                    </li>
+                </ul>
+                <div class="indicadores">
+                    <button class="dot active"></button>
+                    <button class="dot"></button>
+                    <button class="dot"></button>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <section class="info-section" aria-label="Información de Adventure">
+                <div class="info-izq">
+                    <div class="info1">
+                        <div class="texto">
+                            <h2>¿Qué es Adventure?</h2>
+                            <p>Adventure es una plataforma para registrar tus aventuras, con fotos y ubicaciones.</p>
+                            <p>Comparte tus experiencias con otros aventureros y descubre nuevas rutas.</p>
+                            <p>Con Adventure, cada aventura es única y especial.</p>
+                        </div>
+                    </div>
+                    <img src="../img/publicidad1.jpg" alt="Publicidad de Adventure" class="info-img">
+                </div>
+                <div class="info-der">
+                    <img src="../img/publicidad2.jpg" alt="Publicidad de Adventure" class="info-img">
+                    <div class="info2">
+                        <div class="texto">
+                        <h2>¿Cómo funciona?</h2>
+                        <p>Registra tus aventuras, añade fotos y comparte tu experiencia con otros aventureros.</p>
+                        <p>Explora las aventuras de otros usuarios y encuentra inspiración para tu próxima aventura.</p>
+                        <p>Con Adventure, cada aventura es una historia que contar.</p>    
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Joan Garfias. Todos los derechos reservados.</p>
+            <p>Desarrollado por Joan Garfias</p>
+        </footer>
+    </div>
+    
+    <script src="dots.js" type="module"></script>
+</body>
+</html>
