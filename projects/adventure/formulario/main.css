@@ -1,0 +1,379 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root{
+    --color-primario: #42adca;
+    --color-secundario: #3dcfda;
+    --color-terciario: #141414;
+    --color-cuaternario: #ccc;
+    --color-quintario: #f5f5f5;
+    --font-primario: 'Montserrat', sans-serif;
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(#212121, #212121) padding-box, border-box;
+}
+
+.layout{
+    display: grid;
+    grid-template-areas: 
+        "header"
+        "main"
+        "footer";
+    grid-template-rows: auto auto auto;
+}
+
+header{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    justify-content: space-around;
+    background-size: cover;
+    overflow: hidden;
+    margin-bottom: 3rem;
+}
+
+header .overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 0;
+}
+
+.header * {
+    position: relative;
+}
+
+ul{
+    list-style: none;    /* Elimina los bullets */
+    padding: 0;          /* Elimina el padding izquierdo */
+    margin: 0;
+}
+
+a{
+    text-decoration: none;
+    color: #f5f5f5;
+}
+
+li{
+    margin: 0;           /* Opcional: asegura que los <li> no tengan márgenes */
+    padding: 0; 
+}
+
+header nav{
+    width: 80%;
+    display: grid;
+    justify-content: stretch;
+    grid-template-areas:
+        "title espacio opciones";
+    grid-template-columns: 20% 20% 60%;
+}
+
+header nav ul{
+    display: grid;
+    grid-area: opciones;
+    grid-template-columns: auto auto auto auto;
+
+    justify-content: flex-start;
+
+    gap: 3.0rem;
+    padding: 1.5rem;
+    position: relative;
+    z-index: 1; 
+
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 1.1rem;
+    font-weight: bold;
+    font-style: normal;
+
+}
+
+header nav .title{
+    display: grid;
+    grid-area: title;
+    padding: 1rem;
+
+    justify-content: center;
+
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 1.1rem;
+    font-style: normal;
+    color: #3da6c4;
+}
+
+main{
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+.registro{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    width: 50%;
+
+    color: var(--color-quintario);
+
+}
+
+.registro form{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 0 auto;
+}
+
+
+.registro .registro-title{
+    display: flex;
+    text-align: strech;
+    padding-bottom: 2rem;
+    gap: 1rem;
+    font-size: 0.8rem;
+}
+
+.instruct{
+    font-size: 1.1rem;
+    font-weight: 100;
+}
+
+.registro label .text{
+    color: #ede8e8d8;
+}
+
+.divisor{
+    color: #419ae2;
+    font-size: 2.0rem;
+}
+
+.registro input{
+    display: flex;
+    max-width: 70%;
+}
+
+
+
+
+
+
+
+
+/* From Uiverse.io by csemszepp */ 
+.custum-file-upload {
+    height: 100px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: space-between;
+    gap: 20px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed #e8e8e8;
+    background-color: #212121;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0px 48px 35px -48px #e8e8e8;
+  }
+  
+  .custum-file-upload .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .custum-file-upload .icon svg {
+    height: 30px;
+    fill: #e8e8e8;
+  }
+  
+  .custum-file-upload .text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .custum-file-upload .text span {
+    font-weight: 200;
+    color: #e8e8e8;
+  }
+  
+  .custum-file-upload input {
+    display: none;
+  }
+
+
+
+
+
+
+
+
+
+  /* From Uiverse.io by DaniloMGutavo */ 
+.checkbox-container {
+    display: inline-block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    user-select: none;
+  }
+  
+  .custom-checkbox {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+  }
+  
+  .custom-checkbox:checked ~ .checkmark {
+    background-color: #2196F3;
+    box-shadow: 0 3px 7px rgba(33, 150, 243, 0.3);
+  }
+  
+  .custom-checkbox:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  @keyframes checkAnim {
+    0% {
+      height: 0;
+    }
+  
+    100% {
+      height: 10px;
+    }
+  }
+  
+  .custom-checkbox:checked ~ .checkmark:after {
+    animation: checkAnim 0.2s forwards;
+  }
+  
+
+
+
+
+
+
+
+
+
+footer{
+    padding: 2%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-terciario);
+    color: var(--color-quintario);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+form textarea , form input{
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 8px;
+    resize: none;
+    color: #fff;
+    height: auto;
+    border: 1px solid #414141;
+    background-color: transparent;
+    font-family: inherit;
+  }
+  
+  .form input::placeholder {
+    opacity: 0.5;
+  }
+  
+  .form input:focus {
+    outline: none;
+    border-color: #2e92e4;
+  }
+  
+  .form textarea:focus {
+    outline: none;
+    border-color: #2e92e4;
+  }
+  
+  .form .form-submit-btn {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    align-self: flex-start;
+    font-family: inherit;
+    color: #717171;
+    font-weight: 600;
+    width: 40%;
+    background: #313131;
+    border: 1px solid #414141;
+    padding: 12px 16px;
+    font-size: inherit;
+    gap: 8px;
+    margin-top: 8px;
+    cursor: pointer;
+    border-radius: 6px;
+  }
+  
+  .form .form-submit-btn:hover {
+    background-color: #fff;
+    border-color: #fff;
+  }
+  
+  
+  
