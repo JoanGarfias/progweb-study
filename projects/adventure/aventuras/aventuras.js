@@ -37,3 +37,22 @@ function getData(){
     const data = localStorage.getItem("aventuras");
     return data ? JSON.parse(data) : [];
 }
+
+
+const title = document.querySelector('.title');
+const opciones = document.querySelector('.nav-list');
+
+let menu = false;
+
+document.querySelector("#burger").addEventListener("click" , function() {
+    if(menu === false){ //si el menu esta cerrado, lo abriremos
+        opciones.classList.add("activo");
+        title.classList.add("activo");
+        menu = true;
+    }
+    else{
+        opciones.classList.remove("activo");
+        title.classList.remove("activo");
+        menu = false;
+    }
+});

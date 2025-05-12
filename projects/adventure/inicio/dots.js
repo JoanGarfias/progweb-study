@@ -1,3 +1,8 @@
+const title = document.querySelector('.title');
+const opciones = document.querySelector('.nav-list');
+
+let menu = false;
+
 document.addEventListener('DOMContentLoaded', () => {
     const header = document.querySelector('header');
     let cont_img = 0;
@@ -29,4 +34,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 2500);
     
 
+});
+
+
+document.querySelector("#burger").addEventListener("click" , function() {
+    if(menu === false){ //si el menu esta cerrado, lo abriremos
+        opciones.classList.add("activo");
+        title.classList.add("activo");
+        menu = true;
+    }
+    else{
+        opciones.classList.remove("activo");
+        title.classList.remove("activo");
+        menu = false;
+    }
 });

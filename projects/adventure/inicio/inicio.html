@@ -7,11 +7,15 @@
     <meta name="description" content="Bitácora de aventuras con ubicación, fotos y registros diarios.">
     <meta name="author" content="Joan Garfias">
 
-    <link rel="preload" as="image" href="./img/aventura1.jpg" type="image/jpg">
-    <link rel="preload" as="image" href="./img/aventura2.jpg" type="image/jpg">
-    <link rel="preload" as="image" href="./img/aventura3.jpg" type="image/jpg">
+    <link rel="preload" as="image" href="../img/aventura1.jpg" type="image/jpg">
+    <link rel="preload" as="image" href="../img/aventura2.jpg" type="image/jpg">
+    <link rel="preload" as="image" href="../img/aventura3.jpg" type="image/jpg">
 
     <link rel="stylesheet" href="main.css">
+
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#42adca">
+
     <title>Adventure : Inicio</title>
 </head>
 <body>
@@ -19,12 +23,13 @@
         <header>
             <div class="overlay"></div>
             <nav class="nav">
+                <div class="hamburger"><button type="button" id="burger">☰</button></div>
                 <div class="title">
                     <h1>Adventure</h1>
                 </div>
                 <div class="espacio">
                 </div>
-                <ul>
+                <ul class="nav-list">
                     <li>
                         <a href="#" class="activo">Inicio</a>
                     </li>
@@ -79,6 +84,18 @@
         </footer>
     </div>
     
+    <script>
+        if('serviceWorker' in navigator){
+            navigator.serviceWorker.register('sw.js')
+            .then(registration => {
+                console.log('Service Worker registrado con éxito:', registration);
+            })
+            .catch(error => {
+                console.error('Error al registrar el Service Worker:', error);
+            });
+        }
+    </script>
+
     <script src="dots.js" type="module"></script>
 </body>
 </html>
