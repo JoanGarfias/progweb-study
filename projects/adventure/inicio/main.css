@@ -118,6 +118,9 @@ header nav .title{
     z-index: 1; 
 }
 
+header nav .activo{
+    color: #7dc8dd;
+  }
 
 
 

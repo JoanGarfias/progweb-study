@@ -114,6 +114,10 @@ header nav .title{
     color: #3da6c4;
 }
 
+header nav .activo{
+  color: #7dc8dd;
+}
+
 main{
     display: flex;
     flex: 1;
@@ -164,7 +168,7 @@ main{
 
 .registro input{
     display: flex;
-    max-width: 70%;
+    max-width: 100%;
 }
 
 
@@ -177,7 +181,7 @@ main{
 /* From Uiverse.io by csemszepp */ 
 .custum-file-upload {
     height: 100px;
-    width: 300px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: space-between;
@@ -376,4 +380,7 @@ form textarea , form input{
   }
   
   
-  
+  #camaraInput{
+    width: 60%;
+    height: 60%;
+  }
