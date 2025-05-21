@@ -1,5 +1,7 @@
 //Santo Domingo Tehuantepec
 <script>
+import warmBg from './assets/warm-bg.jpg';
+import coldBg from './assets/cold-bg.jpg';
 
 export default {
   name: 'App',
@@ -10,6 +12,7 @@ export default {
       location: "",
       date: "",
       temp: "",
+      temp_int: 30,
       weather: "",
       searching: false,
     };
@@ -25,8 +28,9 @@ export default {
             this.searching = false;
             if(data.cod === 200){
               this.location = `${data.name}` + ` | ${data.sys.country}`; 
-              this.date = new Date().toDateString();
-              this.temp = `${data.main.temp} °c`
+              this.date = new Date().toLocaleDateString("es-MX",{ weekday:'long', day:'numeric', month:'long', year:'numeric' });
+              this.temp_int = Math.floor(data.main.temp);
+              this.temp = `${this.temp_int} °c`
               this.weather = `${data.weather[0].main}` + ` | ${data.weather[0].description}`;
             }
             else{
@@ -35,13 +39,16 @@ export default {
           })
           .catch(error => console.error('Error:', error));   
       }
+    },
+    setFondo(){
+      return (this.temp_int > 30) ? warmBg : coldBg;
     }
   }
 }
 </script>
 
 <template>
-  <div id="app">
+  <div id="app" :style="{ backgroundImage: `url(${setFondo()})`}">
     <main>
       <div class="search-box">
           <input type="text" class="search-bar" placeholder="Query the weather in your city..." v-model="query" v-on:keypress="searchWeather">
