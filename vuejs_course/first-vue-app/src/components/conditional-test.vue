@@ -42,10 +42,6 @@
         Eres un dinosaurio, ya ni chavelo
     </div>
 
-
-
-    <button type="button" v-on:click="isVisibleIf = !isVisibleIf">Cambiar v-if</button>
-
 </template>
 
 <style scoped>
