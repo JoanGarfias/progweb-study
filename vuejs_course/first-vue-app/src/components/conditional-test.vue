@@ -15,6 +15,8 @@
         {{ text }}
     </div>
     <button type="button" v-on:click="isVisibleShow = !isVisibleShow">Cambiar v-show</button>
+    <br><br>
+
 
     <div v-if="isVisibleIf">
         {{ text }}
@@ -22,12 +24,14 @@
     <div v-else="isVisibleIf">
         No estás visible
     </div>
+    <br>
     <button type="button" v-on:click="isVisibleIf = !isVisibleIf">Cambiar v-if</button>
 
     <br><br><br>
 
     <label>Ingresa tu edad</label> <br>
     <input v-model="age">
+    <br>
 
     <div v-if="age >= 18 && age < 30">
         Eres mayor de edad pero tas chavo
@@ -45,5 +49,8 @@
 </template>
 
 <style scoped>
-
+    button{
+        width: 150px;
+        height: 40px;
+    }
 </style>
