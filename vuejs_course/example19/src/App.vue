@@ -1,25 +1,4 @@
-<template>
-  <div id="app">
-    <main>
-      <div class="search-box">
-          <input type="text" class="search-bar" placeholder="Query the weather in your city..." @input="searchWeather">
-      </div>
-      <div class="weather-wrap">
-        <div class="location-box">
-            <div class="location">{{ location }}</div>
-            <div class="date">{{ date }}</div>
-        </div>
-      </div>
-
-      <div class="weather-box">
-        <div class="temp">{{ temp }}</div>
-        <div class="weather">{{ weather }}</div>
-      </div>
-
-    </main>
-  </div>
-</template>
-
+//Santo Domingo Tehuantepec
 <script>
 
 export default {
@@ -27,19 +6,23 @@ export default {
   data() {
     return {
       api_key: "f40a485f61ec4d949c9b1e2b0ec60a0c",
+      query: "",
       location: "",
       date: "",
       temp: "",
       weather: "",
+      searching: false,
     };
   },
   methods: {
     searchWeather(event) {
-      const query = event.target.value;
-      if (query.length > 2) {
-        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${query}&appid=${this.api_key}&units=metric&lang=es`)
+      if (this.query.length > 5 && event.key == "Enter") {
+        console.log(this.query);
+        this.searching = true;
+        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${this.query}&appid=${this.api_key}&units=metric&lang=es`)
           .then(response => response.json())
           .then(data => {
+            this.searching = false;
             if(data.cod === 200){
               this.location = `${data.name}` + ` | ${data.sys.country}`; 
               this.date = new Date().toDateString();
@@ -56,6 +39,33 @@ export default {
   }
 }
 </script>
+
+<template>
+  <div id="app">
+    <main>
+      <div class="search-box">
+          <input type="text" class="search-bar" placeholder="Query the weather in your city..." v-model="query" v-on:keypress="searchWeather">
+      </div>
+
+      <div class="searching" v-show="searching">
+           Buscando...
+      </div>
+
+      <div class="weather-wrap">
+        <div class="location-box">
+            <div class="location">{{ location }}</div>
+            <div class="date">{{ date }}</div>
+        </div>
+      </div>
+
+      <div class="weather-box">
+        <div class="temp">{{ temp }}</div>
+        <div class="weather">{{ weather }}</div>
+      </div>
+
+    </main>
+  </div>
+</template>
 
 <style>
 * {
@@ -167,5 +177,14 @@ main{
   text-shadow: 3px 6px rgba(0,0,0,0.25);
 }
 
+
+.searching{
+  padding-top: 10px;
+  color: #fff;
+  font-size: 32px;
+  font-weight: 500;
+  text-align: center;
+  text-shadow: 1px 3px rgba(0,0,0,0.25);
+}
 
 </style>
