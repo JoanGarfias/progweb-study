@@ -42,6 +42,10 @@
         return cart.items.length;
     });
 
+    const inputHandler = () => {
+        alert(cart.description);
+    }
+
 </script>
 
 <template>
@@ -56,15 +60,18 @@
         {{ quantity }}
     </div>
     <br>
-    <input type="text" v-model="msg">
+    <input type="text" v-model="cart.description" v-on:keyup.enter="inputHandler">
+    <br><br>
+    <button type="button" v-on:click="msg = 'Hola desde el curso de vue3'">Actualizar descripción</button>
 
     <br><br><br>
 
 </template>
 
 <style scoped>
-    input{
-        width: 300px;
-        height: 30px;
-    }
+input, button{
+    width: 300px;
+    height: 30px;
+}
+
 </style>

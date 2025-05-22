@@ -6,6 +6,7 @@ import ReactivityFile  from './components/reactivity-file.vue';
 import ConditionalTest from './components/conditional-test.vue';
 import RenderList from './components/render-list.vue';
 import ComputedSample from './components/computed-sample.vue';
+import EventHandling from './components/event-handling.vue';
 
 </script>
 
@@ -17,6 +18,10 @@ import ComputedSample from './components/computed-sample.vue';
 <h1>Clase 3 Propiedades computadas</h1>
 <br><br>
 <ComputedSample />
+<br>
+<h1>Clase 4 Eventos</h1>
+<br><br><br>
+<EventHandling />
 </template>
 
 <style scoped>
