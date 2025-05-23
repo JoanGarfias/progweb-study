@@ -7,6 +7,9 @@ import ConditionalTest from './components/conditional-test.vue';
 import RenderList from './components/render-list.vue';
 import ComputedSample from './components/computed-sample.vue';
 import EventHandling from './components/event-handling.vue';
+import HookComponent from './components/hook-component.vue';
+import WatchersSample from './components/watchers-sample.vue';
+import AppHeader from './shared/components/layout/AppHeader.vue';
 
 </script>
 
@@ -22,6 +25,21 @@ import EventHandling from './components/event-handling.vue';
 <h1>Clase 4 Eventos</h1>
 <br><br><br>
 <EventHandling />
+<br><br>
+<h1>Clase 5 Hooks</h1>
+<br><br>
+<HookComponent />
+<br><br>
+<h1>Clase 6 Watchers</h1>
+<br><br>
+<WatchersSample />
+<br><br>
+<h1>Clase 7 Componentes Globales</h1>
+
+<div class="flex flex-column w-100">
+  <AppHeader />
+</div>
+
 </template>
 
 <style scoped>
