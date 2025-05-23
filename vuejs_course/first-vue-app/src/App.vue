@@ -10,6 +10,30 @@ import EventHandling from './components/event-handling.vue';
 import HookComponent from './components/hook-component.vue';
 import WatchersSample from './components/watchers-sample.vue';
 import AppHeader from './shared/components/layout/AppHeader.vue';
+import ProductList from './components/product-list.vue';
+
+import type { Product } from '@/interfaces/Product';
+
+const products: Product[] = [
+  {
+    id: 1,
+    name: "Fabuloso",
+    price: 25.5,
+    isAvailable: true
+  },
+  {
+    id: 2,
+    name: "Coca",
+    price: 30.5,
+    isAvailable: false
+  },
+  {
+    id: 3,
+    name: "Pepsi",
+    price: 18.5,
+    isAvailable: true
+  }
+]
 
 </script>
 
@@ -39,6 +63,11 @@ import AppHeader from './shared/components/layout/AppHeader.vue';
 <div class="flex flex-column w-100">
   <AppHeader />
 </div>
+
+<br><br>
+<h1>Clase 8 Atributos de componentes</h1>
+<br><br>
+<ProductList v-bind:products="products"/>
 
 </template>
 
