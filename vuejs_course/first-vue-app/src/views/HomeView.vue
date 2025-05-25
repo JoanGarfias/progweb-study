@@ -1,7 +1,14 @@
 <script setup lang="ts">
-import TheWelcome from '../components/TheWelcome.vue'
+import AppHeader from '@/shared/components/layout/AppHeader.vue';
+import ProductList from '@/components/products/product-list.vue';
+import type { Product } from '@/interfaces/Product';
+import useProduct from '@/composable/useProduct';
+
+const {products} = useProduct();
+
 </script>
 
 <template>
-  
+    <ProductList :products="products"></ProductList>
+    <RouterView></RouterView>
 </template>

@@ -12,6 +12,7 @@ import WatchersSample from './components/watchers-sample.vue';
 import AppHeader from './shared/components/layout/AppHeader.vue';
 import ProductList from './components/products/product-list.vue';
 
+/*
 import type { Product } from '@/interfaces/Product';
 
 const products: Product[] = [
@@ -34,6 +35,7 @@ const products: Product[] = [
     isAvailable: true
   }
 ]
+*/
 
 </script>
 
