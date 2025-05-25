@@ -59,11 +59,11 @@ Si usamos ref(), por ejemplo este caso:
     }
 </script>
 ```
-[! NOTE]
+> [! NOTE]
 > Nótese que si usamos ref() tenemos que utilizar `user.value` para acceder a los atributos.
 > Esto es porque `user` es el componente reactivo en sí y si intentamos hacer `user.name`
 > Dará error porque el componente `user` no tiene ese metodo.
 
-[! NOTE]
+> [! NOTE]
 > Sin embargo, si usamos reactive() no necesitamos colocar `user.value`, podemos colocar `user.<atributo>`
 > como: `user.name` y `user.city`

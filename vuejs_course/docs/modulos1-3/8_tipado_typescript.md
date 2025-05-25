@@ -59,7 +59,7 @@ Resultando de la siguiente manera:
     }
 ```
 
-[! NOTE]
+> [! NOTE]
 > Nótese que isAdult no está definido dentro de 
 ```ts
     const user = reactive <User>({

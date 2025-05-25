@@ -72,5 +72,6 @@ Para poder realizar cambios necesitamos crear los metodos `get()` y `set()` de l
     })
 ```
 
+> [!IMPORTANT]
 > Nótese el metodo `set(newValue)` recibe un parámetro el cual será el que se mande para hacer el cambio.
 > De esta forma podemos tener distintos elementos en la interfaz que puedan modificar un valor de tipo `computed`. 
