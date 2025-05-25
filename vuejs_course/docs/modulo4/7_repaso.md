@@ -2,7 +2,7 @@
 
 > App.vue
 
-```vuejs
+```vue
     import { createApp } from 'vue';
     impot App from './App.vue';
     import AppHeader from '@/components/AppHeader.vue';

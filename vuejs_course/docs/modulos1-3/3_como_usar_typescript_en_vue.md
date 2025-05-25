@@ -6,7 +6,7 @@ Ya podemos usar typescript con Vue.
 
 # Ejemplo de código en VueJS compatible con TypeScript
 
-```html
+```vue
 <script setup lang="ts">
 import {ref} from 'vue'
 

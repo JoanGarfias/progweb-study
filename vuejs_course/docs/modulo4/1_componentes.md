@@ -9,7 +9,7 @@ y dentro de todo eso el componente global como: `AppHeader.vue`
 
 Dentro de `AppHeader.vue` podemos definir un componente que se repita siempre (como un banner, menu, etc). Ejemplo de `AppHeader.vue`:
 
-```vuejs
+```vue
 <template>
     <div>
         <img :src="logo" alt="Logo" width="30" />

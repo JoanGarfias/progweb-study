@@ -12,7 +12,7 @@ Los style bindings permiten asignar estilos CSS de forma dinámica directamente 
 
 > Binding con objeto `(v-bind:style o :style)` los elementos se colocan directamente en el :style
 
-```vuejs
+```vue
     <template>
     <div :style="{ color: textoColor, fontSize: tamañoLetra + 'px' }">
         Texto con estilo dinámico
@@ -27,7 +27,7 @@ Los style bindings permiten asignar estilos CSS de forma dinámica directamente 
 
 > Binding con variable de objeto
 
-```vuejs
+```vue
 <template>
   <div :style="estilos">
     Texto con estilo dinámico desde objeto
@@ -45,7 +45,7 @@ const estilos = {
 
 > Binding con array de estilos
 
-```vuejs
+```vue
 
 <template>
   <div :style="[estiloBase, esActivo ? estiloActivo : estiloInactivo]">

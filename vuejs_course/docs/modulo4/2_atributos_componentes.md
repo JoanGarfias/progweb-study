@@ -44,14 +44,14 @@ export interface Product{
 Para utilizar el componente con sus atributos dentro de la instancia de VueJS necesitamos
 definir los datos que se le van a enviar `interfaces, boolean, numeros, etc`. De la siguiente manera:
 
-```vuejs
+```vue
 <ProductList v-bind:products="products"/>
 ```
 > En este caso `="products"` es donde `products` son los datos que tenemos creados en nuestro `App.vue`, aunque bien podría ser un `boolean, string, etc`. 
 
 También podríamos evitar usar `v-bind` y simplemente usar `:products='products'` de la siguiente forma:
 
-```vuejs
+```vue
 <ProductList :products="products"/>
 ```
 

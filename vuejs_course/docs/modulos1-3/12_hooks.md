@@ -22,7 +22,7 @@ Es la secuencia de etapas por las que pasa un componente Vue desde que se crea h
 
 # Ejemplo
 
-```vuejs
+```vue
 export default {
   data() {
     return { contador: 0 };

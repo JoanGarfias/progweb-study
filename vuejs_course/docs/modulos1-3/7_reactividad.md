@@ -5,7 +5,7 @@ Esto se logra utilizando objetos reactivos, para ello podemos utilizar ref() en 
 
 
 > En lugar de tener: 
-```js
+```vue
 <script setup lang="ts">
     const msg = "Hola";
 </script>
@@ -23,7 +23,7 @@ Esto se logra utilizando objetos reactivos, para ello podemos utilizar ref() en 
 
 > Podemos tener:
 
-```js
+```vue
 <script setup lang="ts">
     const msg = ref('Hola mundo');
 </script>
@@ -47,7 +47,7 @@ De esta forma si `msg` cambia, se actualiza sin refrescar el navegador.
 
 Si usamos ref(), por ejemplo este caso:
 
-```js
+```vue
 <script setup lang="ts">
     const user = ref({
         name: 'Pepe sech',

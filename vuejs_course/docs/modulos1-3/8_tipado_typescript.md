@@ -44,7 +44,7 @@ Esto se logra agregando en la definición del atributo en la interfaz la estruct
 
 Resultando de la siguiente manera:
 
-```ts
+```typescript
     const user = reactive <User>({
         firstName: "Joan Pablo",
         lastName: "Garfias",

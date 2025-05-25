@@ -7,7 +7,7 @@ Nos permite controlar ciertos valores de la aplicación dependiendo de si los va
 # Ejemplo de un watcher
 
 
-```vuejs
+```ts
 
     const msg = ref<string>("Hola Pablito");
     const error = ref<string>("");

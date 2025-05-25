@@ -23,7 +23,7 @@ Para utilizar variables globales y que puedan ser utilizados en cada uno de los 
 
 > Y ahora, para usar los valores de cart en el html (por ej: de `AppHeader.vue`) usaremos:
 
-```vuejs
+```vue
     cart: {{ totalCart }}
 ```
 Para acceder a los productos podemos hacer un `v-for`.

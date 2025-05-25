@@ -8,7 +8,7 @@ La forma de utilizar eventos es con la directiva es con:
 
 Por ejemplo:
 
-```vuejs
+```vue
     <template>
         <input v-model="variable">
         <button type="button" v-on:click="funcionpepe">
@@ -32,7 +32,7 @@ Se puede abreviar tener que escribir `v-on:<evento>` solo colocando `@<evento>`
 
 Por ejemplo:
 
-```vuejs
+```vue
 <input type="text" @click="funcionpepe">
 <button type="button" @keyup="funcionpepe2">
 ```

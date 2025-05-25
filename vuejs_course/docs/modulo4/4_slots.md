@@ -12,7 +12,7 @@ La manera de realizar esto es definir los nombres de los slots dentro del `compo
 
 > En el componente hijo:
 
-```vuejs
+```vue
 <template>
     <br>
     <div>
@@ -35,7 +35,7 @@ La manera de realizar esto es definir los nombres de los slots dentro del `compo
 
 > En el componente padre le decimos que utilice rellene los slots del hijo:
 
-```vuejs
+```vue
 
 <li v-for="product in products" v-bind:key="product.id" class="flex flex-column gap-xs">
     <ProductListItem>

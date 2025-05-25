@@ -10,7 +10,7 @@ import EventHandling from './components/event-handling.vue';
 import HookComponent from './components/hook-component.vue';
 import WatchersSample from './components/watchers-sample.vue';
 import AppHeader from './shared/components/layout/AppHeader.vue';
-import ProductList from './components/product-list.vue';
+import ProductList from './components/products/product-list.vue';
 
 import type { Product } from '@/interfaces/Product';
 
@@ -38,7 +38,7 @@ const products: Product[] = [
 </script>
 
 <template>
-<ReactivityFile />
+<!-- <ReactivityFile />
 <ConditionalTest />
 <RenderList />
 <br><br>
@@ -59,15 +59,17 @@ const products: Product[] = [
 <WatchersSample />
 <br><br>
 <h1>Clase 7 Componentes Globales</h1>
-<br><br>
-<div class="flex flex-column w-100">
-  <AppHeader />
-</div>
+<br><br> -->
 
-<br><br>
+<!-- <br><br>
 <h1>Clase 8 Atributos de componentes</h1>
 <br><br>
-<ProductList v-bind:products="products"/>
+<ProductList v-bind:products="products"/> -->
+
+<div>
+  <AppHeader />
+  <RouterView></RouterView>
+</div>
 
 </template>
 

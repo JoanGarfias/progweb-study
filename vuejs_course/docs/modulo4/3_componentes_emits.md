@@ -7,7 +7,7 @@ Esto es muy parecido a los `eventListeners` que se tenía con JavaScript puro. D
 La manera de disparar un evento es con `emit()` pero la forma en la que se emite el evento se define con `defineEmits<{ lógica de disparo }>();`.
 
 # Ejemplo:
-```vuejs
+```ts
 const emit = defineEmits<{
     (e: 'addToCart', product: Product): void
 }>();
@@ -22,7 +22,7 @@ const addToCart = (product: Product) => {
 
 De esta forma podemos tener en el componente padre algo como:
 
-```vuejs
+```vue
 <ProductoItem @addToCart="manejarCarrito" />
 ```
 

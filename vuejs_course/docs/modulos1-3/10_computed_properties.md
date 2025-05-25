@@ -61,7 +61,7 @@ Si or ejemplo, hacemos un v-model entre un input y un mensaje tipo `computed`, n
 
 Para poder realizar cambios necesitamos crear los metodos `get()` y `set()` de la siguiente manera:
 
-```js
+```ts
     const msg = computed({
         get(){
             return cart.description;
