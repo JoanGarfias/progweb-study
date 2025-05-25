@@ -59,7 +59,7 @@ const products: Product[] = [
 <WatchersSample />
 <br><br>
 <h1>Clase 7 Componentes Globales</h1>
-
+<br><br>
 <div class="flex flex-column w-100">
   <AppHeader />
 </div>
