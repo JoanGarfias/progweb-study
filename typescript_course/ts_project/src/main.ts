@@ -32,6 +32,16 @@ const isLatino = (pais: string) : boolean => {
     return paises_latinos.includes(pais);
 }
 
+
+function saludarOpcional(nombre: string, edad?: number){
+    if(edad !== undefined){
+        console.log(`Hola ${nombre} tienes ${edad} años de edad`);
+    }
+    else{
+        console.log(`Hola ${nombre}, no se ha proporcionado la edad`);
+    }
+}
+
 function validarPing(){
     if(typeof PING == 'number'){
         console.log("OK");
@@ -49,3 +59,6 @@ isRefresco("coca");
 
 console.log("Verificando si USA es un pais latino: ", isLatino("estados unidos"));
 console.log("Verificando si Mexico es un pais latino: ", isLatino("mexico"));
+
+saludarOpcional("Pepe", 20);
+saludarOpcional("Pepe");
