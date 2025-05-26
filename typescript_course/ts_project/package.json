@@ -1,0 +1,19 @@
+{
+  "name": "ts_project",
+  "version": "1.0.0",
+  "description": "Carpeta para aprender TypeScript",
+  "main": "index.js",
+  "scripts": {
+    "version": "tsc --version",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "typescript",
+    "javascript"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.8.3"
+  }
+}
