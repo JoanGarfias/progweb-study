@@ -30,7 +30,7 @@ Si ponemos que son de tipo `string` todos los argumentos serán cadenas.
 > [!TIP]
 > Si queremos colocar parámetros con cierto tipado podemos definir un `TYPE` y colocar los tipos necesarios.
 
-# Ejemplo de Split Generator con TYPE
+# Ejemplo de Split Operator con TYPE
 
 ```typescript
 type PEPE number | string | boolean;
