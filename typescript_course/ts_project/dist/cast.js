@@ -1,0 +1,10 @@
+"use strict";
+const objeto1 = { nombre: "Ana", edad: 30 };
+const objeto2 = { nombre: "Pedrito", edad: 24 };
+const objeto3 = { nombre: "Bernardo", edad: 49 };
+const user1 = objeto1;
+const user2 = objeto2;
+const user3 = objeto3;
+console.log(user1.nombre);
+console.log(user2.nombre);
+console.log(user3.nombre);

@@ -25,8 +25,8 @@ export default{
 </script>
 
 <template>
-    <div class="todo-body">
-        <div class="todo-item" v-for="elem in listaT" :key="elem.id">
+    <div class="">
+        <div v-for="elem in listaT" :key="elem.id">
             <TodoItem :item="elem"/>
         </div>
     </div>
