@@ -1,53 +1,45 @@
-<script>
-
-export default {
-
-    name: "TodoItem",
-    props: {
-        item: Object,
-    },
-    data(){
-        return {
-
-        }
-    },
-    methods: {
-    },
-    components(){
-    },
-    computed: {
-    },
-}
-
-</script>
-
 <template>
-
-    <div>
-        <div class="t-body">
-            <h2>{{ item.title }}</h2>
-            <input type="checkbox" value="item.completed" />
+    <div class="todo" v-bind:class="{completed: registro.completed}">
+        <div class="todo-body">
+            <input type="checkbox" v-bind:checked="registro.completed" v-bind:onchange="marcarItem"/>
+            {{ registro.title }}
         </div>
+
         <div class="todo-actions">
-            <button>Eliminar</button>
+            <button v-on:click="$emit('delete-todo', registro.id)">Eliminar</button>
         </div>
     </div>
 </template>
 
+<script>
+export default {
+    name:"TodoItem",
+    props: ["registro"],
+    data(){
+        return {
+            reg: this.registro,
+        }
+    },
+    methods: {
+        marcarItem(){
+            this.reg.completed = !this.reg.completed;
+        }
+    }
+};
+</script>
+
 <style scoped>
-.todo-item{
-    display: flex;
-    flex-direction: row;
+.todo{
     border-bottom: solid 1px #ccc;
     padding: 10px;
 }
 
-.todo-item:not(.completed):hover{
+.todo:not(completed):hover{
     background-color: #eee;
 }
 
-.completed {
-    color: #ccc;
+.completed{
+    color:#ccc;
     text-decoration: line-through;
 }
 
@@ -55,7 +47,7 @@ export default {
     text-decoration: line-through;
 }
 
-.todo-body, 
+.todo-body,
 .todo-actions{
     display: inline-block;
     vertical-align: top;
@@ -76,11 +68,11 @@ button{
     padding: 10px;
     background-color: #ccc;
     color: black;
-    
 }
 
-.button:hover{
+button:hover{
     background-color: #da2020;
     color: white;
 }
+
 </style>

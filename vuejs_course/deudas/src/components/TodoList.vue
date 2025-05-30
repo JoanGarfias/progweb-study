@@ -1,38 +1,17 @@
-<script>
-
-import TodoItem from '@/components/TodoItem.vue';
-
-export default{
-
-    name: "TodoList",
-    props: {
-        listaT: [],
-    },
-    data(){
-        return {
-
-        }
-    },
-    methods: {
-    },
-    components: {
-        TodoItem,
-    },
-    computed: {
-    },
-}
-
-</script>
-
 <template>
-    <div class="">
-        <div v-for="elem in listaT" :key="elem.id">
-            <TodoItem :item="elem"/>
+    <div>
+        <div v-bind:key="item.id" v-for="item in listaT" >
+            <TodoItem v-bind:registro="item" v-on:delete-todo="$emit('delete-todo', item.id)"/>
         </div>
     </div>
-
 </template>
 
-<style>
+<script>
+import TodoItem from "./TodoItem.vue";
 
-</style>
+export default{
+    name: "TodoList",
+    props: ["listaT"],
+    components: {TodoItem},
+};
+</script>
