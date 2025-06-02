@@ -1,15 +1,18 @@
 <template>
-  <div id="header"><h1>Lista de Tareas</h1></div>
+  <div id="header">
+    <h1>Lista de Tareas</h1>
+    <TodoSearch v-on:queryChange="changeSearch"/>
+  </div>
   <div class="body">
     <div id="main-container">
         <div class="todo-add">
             <h3>Agrega una tarea</h3>
             <div class="todo-addItem">
-                <TodoAdd v-bind:listaT="lista" @todoAdded="agregarTodo" />
+                <TodoAdd v-bind:listaT="copyT" @todoAdded="agregarTodo" />
             </div>
         </div>
         <h3>Contenido</h3>
-        <TodoList v-bind:listaT="lista" @registroTodo="agregarTodoList" v-on:delete-todo="deleteItemList"/>
+        <TodoList v-bind:listaT="copyT" @registroTodo="agregarTodoList" v-on:delete-todo="deleteItemList"/>
     </div>
   </div>
 
@@ -18,6 +21,7 @@
 <script>
 import TodoList  from './components/TodoList.vue';
 import TodoAdd from './components/TodoAdd.vue';
+import TodoSearch from './components/TodoSearch.vue';
 
 export default {
 
@@ -25,6 +29,7 @@ export default {
   components: {
     TodoList,
     TodoAdd,
+    TodoSearch,
   },
   data(){
     return{
@@ -51,6 +56,17 @@ export default {
         this.lista.splice(itemIndex, 1);
         this.copyT = [...this.lista];
         console.log(this.lista);
+    },
+    changeSearch(query){
+      if(query.trim() === ""){
+        this.copyT = [...this.lista];
+      }
+      else{
+        const temp = this.lista.filter((todo) => {
+          return todo.title.includes(query)
+        });
+        this.copyT = [...temp];
+      }
     }
   }
 }
@@ -78,6 +94,10 @@ body{
 }
 
 #header{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
   background: rgb(24, 23, 23);
   padding: 10px;
     color: #ccc;

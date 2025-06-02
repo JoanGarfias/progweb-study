@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "vue-uuid": "^3.0.0"
+  },
+  "devDependencies": {
+    "vite-svg-loader": "^5.1.0"
+  }
+}

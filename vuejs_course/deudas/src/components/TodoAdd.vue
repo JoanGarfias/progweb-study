@@ -1,9 +1,9 @@
 <template>
     <div id="add-container">
-        <form>
+        <form @submit="agregarTodo">
             <input type="checkbox" v-model="isCompleted"/>
             <input type="text" v-model="nombreTodo"/>
-            <button @click="agregarTodo">Agregar</button>
+            <button type="submit">Agregar</button>
         </form>
     </div>
 </template>
@@ -20,9 +20,10 @@ export default{
         }
     },
     methods: {
-        agregarTodo(){
+        agregarTodo(event){
+            event.preventDefault();
             const newItem = {
-                id: this.listaT.length,
+                id: this.listaT.length + 1,
                 title: this.nombreTodo,
                 completed: this.isCompleted,
             }
