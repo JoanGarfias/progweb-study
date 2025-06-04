@@ -20,7 +20,7 @@ export default defineComponent({
       { concept: 'Venta de artículos', amount: 300, date: '2025-06-02' },
       { concept: 'Freelance', amount: 500, date: '2025-06-03' },
     ]);
-    const total = ref(0);
+    const total = ref(incomes.value.reduce((sum, income) => sum + income.amount, 0));
 
     const addIncome = (income: { concept: string; amount: number; date: string }) => {
       incomes.value.push(income);
@@ -44,6 +44,7 @@ export default defineComponent({
 .title {
   font-size: 24px;
   margin-bottom: 20px;
+  text-align: center;
 }
 .total-label {
   font-size: 18px;

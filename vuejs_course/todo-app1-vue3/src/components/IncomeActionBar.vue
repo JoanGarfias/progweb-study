@@ -42,10 +42,15 @@
     display: flex;
     gap: 10px;
     margin-bottom: 20px;
+    width: 90%;
+    justify-content: center;
+    margin: 0 auto;
   }
   input {
     padding: 5px;
     font-size: 14px;
+    border-style: dotted;
+    border-bottom-color: #000;
   }
   button {
     padding: 5px 10px;
@@ -61,5 +66,6 @@
     color: red;
     font-size: 14px;
     margin-top: 10px;
+    text-align: center;
   }
 </style>

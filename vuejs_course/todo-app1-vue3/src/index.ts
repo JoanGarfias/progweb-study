@@ -5,6 +5,8 @@ import TodoItem from '@/components/TodoItem.vue';
 import TodoStatusBar from '@/components/TodoStatusBar.vue';
 import TodoActionBar from '@/components/TodoActionBar.vue';
 import TodoList from '@/components/TodoList.vue';
+import IncomeActionBar from '@/components/IncomeActionBar.vue';
+import IncomeList from '@/components/IncomeList.vue';
 // import './assets/index.css';
 
 const TodoAppPlugin: Plugin = {
@@ -15,6 +17,8 @@ const TodoAppPlugin: Plugin = {
     app.component('TodoItem', TodoItem);
     app.component('TodoActionBar', TodoActionBar);
     app.component('TodoList', TodoList);
+    app.component('IncomeActionBar', TodoActionBar);
+    app.component('IncomeList', TodoList);
   },
 };
 
@@ -27,4 +31,6 @@ export {
   TodoActionBar,
   TodoStatusBar,
   TodoList,
+  IncomeActionBar,
+  IncomeList,
 };

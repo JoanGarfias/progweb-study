@@ -31,6 +31,9 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+    width: 90%;
+    padding-top: 30px;
+    margin: 0 auto
   }
   .income-item {
     display: grid;
