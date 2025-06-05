@@ -1,0 +1,12 @@
+---
+import {Image, Picture} from 'astro:assets';
+import imgCanto from '../assets/fotografia.png';
+---
+
+<Image src={imgCanto} alt="Canto" />
+
+<Picture src={imgCanto}
+         alt="Canto"
+         formats={[ "avif", "webp"]}
+         class="img"
+/>

@@ -1,0 +1,30 @@
+---
+
+//Aquí va toda la lógica del pre-renderizado.
+//ej: calcular algo antes de renderizar la página.
+let subtitle = "Subtitulo";
+
+---
+
+<!--
+Estructura del html
+-->
+
+<main>
+    <h1>Contacto</h1>
+    <p>{subtitle}</p>
+
+    <a href="/blog/post1">Ir a blog</a>
+
+    <button onclick = { () => { subtitle = "Cambiado" } }>Cambiar texto</button>
+</main>
+
+<!--Estilos CSS -->
+
+<style>
+
+</style>
+
+<script>
+    console.log("Hola");
+</script>
