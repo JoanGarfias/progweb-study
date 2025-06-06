@@ -1,0 +1,22 @@
+---
+import dataBlogs from "../../assets/dataBlogs.json";
+    
+export async function getStaticPaths() {
+    const allBlogs = Object.values(dataBlogs);
+    console.log(allBlogs);
+    return allBlogs.map((blog) => ({
+        params: { id: blog.id },
+        props: { blog }
+    }));
+};
+const { blog } = Astro.params;
+---
+<div>
+<h1>{blog.titulo}</h1>
+<p>{blog.texto}</p>
+<p>{blog.fecha}</p>
+</div>
+
+<style>
+
+</style>

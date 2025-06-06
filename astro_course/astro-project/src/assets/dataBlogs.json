@@ -1,0 +1,20 @@
+[
+    {
+        "id": "HabilidadProgramacion",
+        "titulo": "Habilidad de Programación",
+        "descripcion": "La habilidad de programación es esencial para los desarrolladores, ya que les permite crear software, resolver problemas y automatizar tareas. Esta habilidad incluye el conocimiento de lenguajes de programación, algoritmos y estructuras de datos.",
+        "fecha": "2023-10-01"
+    },
+    {
+        "id": "HabilidadAnalisisDatos",
+        "titulo": "Habilidad de Análisis de Datos",
+        "descripcion": "El análisis de datos es crucial en la era digital, ya que permite a las empresas tomar decisiones informadas basadas en datos. Esta habilidad incluye la capacidad de interpretar datos, identificar patrones y utilizar herramientas de análisis.",
+        "fecha": "2023-10-02"
+    },
+    {
+        "id": "HabilidadResolucionProblemas",
+        "titulo": "Habilidad de Resolución de Problemas",
+        "descripcion": "La resolución de problemas es una habilidad clave en cualquier campo, ya que implica identificar problemas, analizar opciones y encontrar soluciones efectivas. Esta habilidad es especialmente importante en entornos laborales dinámicos.",
+        "fecha": "2023-10-03"
+    }
+]
