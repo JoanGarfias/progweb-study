@@ -1,55 +1,82 @@
 <script>
+import { getDocs } from 'firebase/firestore';
+
+import { db } from '../firebaseconfig';
+import { collection, addDoc, doc, deleteDoc, updateDoc } from 'firebase/firestore';
 
 export default {
     setup () {
-        const addProduct = () => {
-            
-        }
     },
     data(){
         return {
-            newProduct: {
+            products: [],
+            showAddProduct: false,
+            selectedProduct: null,
+            productForm: {
                 name: '',
                 price: 0,
                 description: ''
             }
         }
     },
-    inject: ['products'],
+    async created(){
+        await this.fetchProducts();
+    },
     methods: {
-        addProduct(){
-            const p = {
-                id: this.products.length + 1,
-                name: this.newProduct.name,
-                price: parseFloat(this.newProduct.price),
-                description: this.newProduct.description
+        async fetchProducts(){
+            const querySnapshot = await getDocs(collection(db, 'products'));
+            this.products = querySnapshot.docs.map(doc => ({
+                id: doc.id,
+                ...doc.data()
+            }))
+            .sort((a, b) => a.name.localeCompare(b.name));
+        },
+        editProduct(id){
+            const product = this.products.find(product => product.id === id);
+            if (product) {
+                this.productForm = { ...product };
+                this.selectedProduct = id;
+                this.showAddProduct = true;
+
+            }
+        },
+        async deleteProduct(id){
+            if (confirm('¿Estás seguro de que quieres eliminar este producto?')) {
+                await deleteDoc(doc(db, 'products', id));
+                this.products = this.products.filter(product => product.id !== id);
+            }
+        },
+        async submitProduct(event){
+            event.preventDefault();
+            if (this.selectedProduct) {
+                // Update existing product
+                const productRef = doc(db, 'products', this.selectedProduct);
+                await updateDoc(productRef, this.productForm);
+                this.products = this.products.map(product => 
+                    product.id === this.selectedProduct ? { ...product, ...this.productForm } : product
+                );
+            } else {
+                // Add new product
+                const docRef = await addDoc(collection(db, 'products'), this.productForm);
+                this.products.push({ id: docRef.id, ...this.productForm });
+            }
+            this.cancel();
+            await this.fetchProducts();
+        },
+        cancel(){
+            this.showAddProduct = false;
+            this.selectedProduct = null;
+            this.productForm = {
+                name: '',
+                price: 0,
+                description: ''
             };
-            this.$emit('addProduct', p);
         }
     }
 }
 </script>
 
 <template>
-    <h2>Agrega un nuevo producto</h2>
-    <form class="add-product-form">
-    <div class="form-group">
-        <label for="name">Nombre</label>
-        <input type="text" id="name" required>
-    </div>
-
-    <div class="form-group">
-        <label for="price">Precio</label>
-        <input type="number" id="price" required>
-    </div>
-
-    <div class="form-group">
-        <label for="description">Descripción</label>
-        <input type="text" id="description" required>
-    </div>
-
-    <button type="submit" class="add-product-btn" @click="addProduct">Agregar producto</button>
-    </form>
 
     <div class="product-list-container">
         <h1>Lista de productos</h1>
@@ -75,6 +102,31 @@ export default {
             </tbody>
         </table>
     </div>
+
+    <span class="want-add" @click="showAddProduct = true">Quiero agregar un nuevo producto</span>
+
+    <form class="add-product-form" v-if="showAddProduct || selectedProduct">
+        <div class="form-group">
+        <label for="name">Nombre</label>
+        <input type="text" id="name" v-model="productForm.name" placeholder="Nombre" required>
+    </div>
+
+    <div class="form-group">
+        <label for="price">Precio</label>
+        <input type="number" id="price" v-model="productForm.price" placeholder="Precio" required>
+    </div>
+
+    <div class="form-group">
+        <label for="description">Descripción</label>
+        <input type="text" id="description" v-model="productForm.description" placeholder="Descripción" required>
+    </div>
+
+    <div class="button-group">
+        <button type="submit" class="delete-btn" @click="cancel">Cancelar</button>
+        <button type="submit" class="add-btn" @click="submitProduct">Agregar producto</button>
+    </div>    
+    </form>
+
 </template>
 
 <style>
@@ -121,6 +173,15 @@ tbody tr:hover {
     border-color: #ef4444;
 }
 .delete-btn:hover {
+    background-color: #1f1f1f;
+}
+
+.add-btn{
+    background-color: transparent;
+    color: var(--color-text-green);
+    border-color: var(--color-text-green);
+}
+.add-btn:hover {
     background-color: #1f1f1f;
 }
 
@@ -180,6 +241,17 @@ tbody tr:hover {
 
   .add-product-btn:hover {
     background-color: #eaeaea;
+  }
+
+
+  .want-add{
+    color: var(--color-text-green);
+    border-bottom: 1px solid var(--color-text-green);
+  }
+
+  .button-group{
+    display: flex;
+    justify-content:space-between;
   }
 
   @media (max-width: 768px) {

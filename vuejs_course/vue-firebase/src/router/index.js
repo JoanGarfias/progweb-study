@@ -10,20 +10,16 @@ const router = createRouter({
       path: '/create-order',
       name: 'create-order',
       component: CreateOrder,
-      props: route => ({ products: route.params.products }),
     },
     {
       path: '/products',
       name: 'products',
       component: ProductList,
-      props: route => ({ products: route.params.products }),
-      emits: ['add-product', 'addProduct'],
     },
     {
       path: '/orders',
       name: 'orders',
       component: OrderList,
-      props: route => ({ products: route.params.products }),
     },
   ],
 })

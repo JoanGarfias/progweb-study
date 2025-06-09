@@ -1,47 +1,14 @@
 <script>
-import { ref } from 'vue';
 
 export default {
   name: 'App',
   data() {
     return {
-      products: ref([
-        {
-          id: 1,
-          name: 'Coca-Cola 600ml',
-          price: 21.0,
-          description: 'Bebida gaseosa de cola en presentación de 600ml.',
-        },
-        {
-          id: 2,
-          name: 'Pepsi 600ml',
-          price: 18.0,
-          description: 'Bebida gaseosa de cola en presentación de 600ml.',
-        },
-        {
-          id: 3,
-          name: 'Gansito Marinela',
-          price: 31.0,
-          description: 'Delicioso pan de chocolate con fresa.',
-        },
-        {
-          id: 4,
-          name: 'Galletas Marías Gamesa',
-          price: 20.0,
-          description: 'Deliciosas galletas tradicionales Maria.',
-        }
-      ])
-    };
-  },
-  methods: {
-    add-product(){
-      
+    
     }
   },
-  provide() {
-    return {
-      products: this.products
-    };
+  methods: {
+
   },
 }
 </script>
