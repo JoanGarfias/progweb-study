@@ -1,0 +1,16 @@
+:root{
+    --color: blue;
+}
+
+.opcion.active{
+    color: var(--color);
+}
+
+[type="text"]{
+    color: green;
+    background-color: brown;
+}
+
+[type="password"]{
+    color: green;
+}
