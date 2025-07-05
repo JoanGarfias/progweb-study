@@ -1,3 +1,19 @@
+/*
+1) Display inline, block e inline-block
+
+- display: inline;
+    Utiliza espacio de un elemento en línea, es decir, 
+    se comporta como texto, no tendrá ni ancho ni alto.
+display: block;
+    Utilizará todo el ancho de la pantalla. Este si tiene
+    ancho y alto.
+display: inline-block;
+    Es una combinación entre inline block, ya que es un 
+    elemento de línea pero este SI puede tener ancho y alto.
+
+*/
+
+
 :root{
     --color: blue;
 }
