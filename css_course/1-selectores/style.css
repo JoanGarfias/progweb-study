@@ -13,12 +13,12 @@
 
 
 2) Margin es una propiedad de espaciado hacia afuera
-Es decir: del borde del contenido hacia afuera
+    Es decir: del borde del contenido hacia afuera
+    Su orden es: top, right, bottom, left
 
 3) Padding es una propiedad de espaciado hacia dentro
-Es decir: del borde del contenido hacia afuera
-
-Una diferencia con margin es que padding no tiene valores negativos
+    Es decir: del borde del contenido hacia afuera
+    Una diferencia con margin es que padding no tiene valores negativos
 
 4) Formas de centrar un div
 
@@ -37,7 +37,7 @@ Una diferencia con margin es que padding no tiene valores negativos
 
 6) box-sizing
     Es una manera de hacer que la caja tenga
-    el tamaño y altura especifica que se especifica
+    el tamaño y altura especifica que se especifica (literalmente el tamaño del modelo de caja será el especificado)
     con las propiedades width y height
 
 7) Propiedades lógicas
@@ -51,6 +51,24 @@ Una diferencia con margin es que padding no tiene valores negativos
     margin-block-end
     padding-inline-start
     padding-inline-end
+    
+    Estas propiedades sirven mucho para que una página necesite verse en diferentes idiomas
+    por ejemplo: en los idiomas como el árabe se lee de derecha a izquierda. Entonces, usar estas propiedades
+    se adaptan al "idioma" por así decirlo.
+
+8) La propiedad "border" en realidad es un shorthand para tres propiedades:
+    - border-width
+    - border-style
+    - border-color
+
+    Ejemplo: 
+        border: 1px solid red;
+    
+    Valores posibles de border-style: solid, dashed, dotted, etc.
+    A su ves cada propiedad de border como: border-width, border-style y border-color
+    son un shorthand por ejemplo:
+    border-width puede extendeser a border-left-width, border-right-width,
+    border-top-width, border-bottom-width
 
 */
 
@@ -80,4 +98,13 @@ Una diferencia con margin es que padding no tiene valores negativos
     margin-left: auto;
     margin-right: auto;
     border: 1px solid black;
+}
+
+
+.box{
+    width: 300px;
+    height: 200px;
+    background: yellow;
+    margin: 2rem auto 0;
+    border: 1px solid red;
 }
