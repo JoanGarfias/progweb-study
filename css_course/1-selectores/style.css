@@ -145,7 +145,101 @@
 13) Más pseudoclases
     :target, :not, :empty 
 
+
+    target: es cuando estás navegando por una sección de la página.
+    Por ejemplo:
     
+    <div class="menu">
+        <a href="#cursos">Cursos</a>
+        <a href="#contacto">Contacto</a>
+        <a href="#proyectos">Proyectos</a>
+    </div>
+
+    <div class="contenido">
+        <div id="cursos">Estás viendo los cursos
+            <img src="http://lenguajejs.com/vuejs/introduccion/que-es-vue/vuejs.png" alt="Pepe">
+        </div>
+        <div id="contacto">Estás viendo la sección de contacto</div>
+        <div id="proyectos">Estás viendo los proyectos</div>
+    </div>
+
+
+    Podemos hacer que por defecto el contenido 
+    no se visualice y con target hacer que si se vea.
+
+    De esta forma:
+
+    .contenido > *{
+        display: none;
+    }
+
+    .contenido > *:target{
+        display: block;
+    }
+
+
+    - :not()
+    Selcciona a los elementos que no cumplñan
+    con la condición
+
+    Ejemplo:
+
+    <div class="not-container">
+        <div class="not"></div>
+        <div class="not"></div>
+        <div class="not"></div>
+        <div class="not"></div>
+    </div>
+
+    .not{
+        display: inline-block;
+        background: red;
+        margin: 1em;
+        width: 100px;
+        height: 100px;
+        border-radius: 20px;
+    }
+
+    .not-container:hover .not:not(:hover){
+        opacity: 0.5;
+    }
+
+    De esta forma cuando pases el mouse por el contenedor
+    todas  tendrán opacidad, pero cuando quites el mouse
+    del contenedor todas se volverán a ver igual.
+
+
+
+
+    - :empty
+    Sirve para encontrar elementos vacíos.
+    Podriamos hacer que los elementos que 
+    no tienen contenido no se visualicen.
+
+
+14) Pseudoclases de formularios
+
+    :required: selecciona os elementos
+    que son requeridos.
+
+    :checked: selecciona los elementos que tienen check
+
+    :focus: es cuando estoy en un elemento en particular
+
+    :is permite seleccionar varios elementos hijos
+        ejemplo:
+            ul a,
+            ul li,
+            ul span{
+                color: red;
+            }
+
+            ul :is(a,li,span){
+                color: red;
+            }
+    :where es muy parecido a :is pero este tiene especifidad de cero.
+    Si queremos evitar problemas de especifidad podiamos
+    utilizar :where en lugar de:is
 
 */
 
@@ -247,4 +341,25 @@
 
 .visited:visited{
     color: blue;
+}
+
+.contenido > *{
+    display: none;
+}
+
+.contenido > *:target{
+    display: block;
+}
+
+.not{
+    display: inline-block;
+    background: red;
+    margin: 1em;
+    width: 100px;
+    height: 100px;
+    border-radius: 20px;
+}
+
+.not-container:hover .not:not(:hover){
+    opacity: 0.5;
 }
