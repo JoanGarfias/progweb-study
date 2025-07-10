@@ -256,7 +256,40 @@
     <elem>:last-of-type selecciona el último
     elemento hijo de tipo <elem>
 
+
+16) <elem>:nth-child()
+    Permite seleccionar varios elementos html
+    según un parámetro.
+    
+    El parámetro puede ser:
+
+    odd: impares
+    
+    even: pares
+    
+    una ecuación: ejemplo (5n, 3n+1) tomando 
+    en cuenta que n empieza en 0
+
+    NOTA; podemos escojer los N primeros 
+    haciendo algo como esto:
+    .item:nth-child(-n+5)
+    ya que se detendrá en el 0
+
+17) nth-last-child()
+    Es parecido a nth-child()
+    pero va en reversa, empieza con N con un valor dependiendo
+    la cantidad de hijos
+
+18) <elem>:nth.of-type()
+    Esta pseudoclase toma en cuenta la etiqueta html,
+    asi que s ponemos algo como
+    .item:nth-of-type(2n)
+
+    contará por separado los elementos que tengan
+    la clase "item".
+
 */
+
 
 
 
@@ -401,5 +434,32 @@
 }
 
 .child-container div:last-of-type{
+    background: yellow;
+}
+
+
+
+.tabla{
+    margin-top: 15rem;
+}
+
+.item{
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    text-align: center;
+    line-height: 80px;
+    border-radius: 50px;
+}
+
+.item:nth-child(odd){
+    background: red;
+}
+
+.item:nth-child(even){
+    background: green;
+}
+
+.item:nth-child(3n){
     background: yellow;
 }
