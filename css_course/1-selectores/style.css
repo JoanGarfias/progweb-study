@@ -241,6 +241,21 @@
     Si queremos evitar problemas de especifidad podiamos
     utilizar :where en lugar de:is
 
+15) Selectores por posición
+    :first-child, :last-child,
+    :first-of-type, :last-of-type
+
+
+    :first-child: selecciona el primer hijo
+    
+    :last-chlld selecciona el ultimo elemento hijo
+    
+    <elem>:first-of-type selecciona el primer
+    elemento hijo de tipo <elem>
+
+    <elem>:last-of-type selecciona el último
+    elemento hijo de tipo <elem>
+
 */
 
 
@@ -362,4 +377,29 @@
 
 .not-container:hover .not:not(:hover){
     opacity: 0.5;
+}
+
+
+
+
+.child{
+    color: #1a1919;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+}
+
+.child:first-child{
+    background: green;
+}
+
+.child:last-child{
+    background: blue;
+}
+
+.child-container div:first-of-type{
+    background: red;
+}
+
+.child-container div:last-of-type{
+    background: yellow;
 }
