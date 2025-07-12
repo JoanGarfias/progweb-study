@@ -288,6 +288,148 @@
     contará por separado los elementos que tengan
     la clase "item".
 
+
+19) Background en realidad es un shorthand, en realidad puede ser:
+    background-color, background-size,
+    background-image, background-repeat
+
+
+20) Background-size
+    Puede tener más allá de solo pixeles.
+
+    auto: la imagen usa sus dimensiones naturales (de la imagen)
+
+    contain: agranda el fondo hasta que rellene el alto o el ancho 
+    del elemento, sin cortar la imagen
+
+    cover: rellena el fondo completo pero puede cortarse la imagen
+
+21) background-position
+    Podemos hacer que el fondo se mueva hacia otras coordenadas como origen
+
+    [x]px [y]px: movemos a ciertas coordenadas especificas.
+    
+    [x[% [y]%; usando porcentajes
+    
+    [left|right|top|bottom|center] [left|right|top|bottom|center]:
+    usamos las posiciones ya por defecto.
+
+22) background-clip
+    La propiedad background-clip define hasta dónde se extiende el fondo (color o imagen)
+    dentro de un elemento. Permite controlar si el fondo se recorta al borde, al área de padding o solo al contenido.
+
+    background-clip: border-box | padding-box | content-box;
+
+    border-box	(Valor por defecto) El fondo se extiende hasta el borde del borde del elemento, incluyendo el border.
+    padding-box	El fondo no cubre el borde, se recorta al límite del padding.
+    content-box	El fondo solo cubre el área del contenido, no el padding ni el border.
+
+
+23) background-origin
+    Parecido a background-clip, pero define dónde se empieza a dibujar el fondo, puede
+    ser apartir del borde (border-box), o dentro del borde (padding-box)
+    o donde empieza el contenido (content-box).
+
+    
+24) background-attachment 
+    EL fondo puede moverse con el scroll o quedarse fijo
+
+    Valores posibles: fixed
+
+25) Backgrounds múltiples
+    Con background podemos tener múltiples fondos, el primer fondo definido es el que estará
+    al frente de todos los demás.
+
+    Podemos definir el tamaño de cada fondo con background-size separados por comas.
+
+26( Shorthand de Background
+    background: image position / size repeat attachment origin clip;
+
+27) El color en CSS
+    Color de frente: color
+    Color de fondo: propiedad background-color o background-image
+
+28) Transparent
+    Transparent es quitarle la visualización a un elemento (texto, color, fondo, etc)
+    Pero tiene una ventaja: 
+        El color y fondo sigue ahí con su espacio reservado, solamente se oculta.
+
+    Un ejemplo de uso es una catalogo de productos arriba del footer.
+    Cuando pasas el mouse sobre una card y se hace más grande se puede empujar el footer hacia abajo
+    Esto sucede porque al hacerse más grande un elemento empuja a los demás.
+    Sin embargo, para solucionarlo simplemente puedes asignar un borde abajo de X tamaño
+    y ponerlo transparente. Así el espacio estará ahí pero no se visualizará (transparent)
+    
+29) Notaciones de color
+    - RGB (red, green, blue)
+    - Hexadecimal
+    - HSL:
+        H (Hue): tono de 0 a 360
+        S (Saturation): intensidad del color, de 0, gris a 100% (el color puro)
+        L (Light): es la luz, 0% para negro y 100% para blanco.
+
+30) linear-gradient
+    Es un fondo (tipo imagen) que se genera con colores
+    Ejemplo:
+
+    body{
+        background: linear-gradient( [angulo], red, yellow) [Xpx];
+        background-repeat: no-repeat;
+    }
+
+    NOTA: Para hacer buenos linear-gradient podemos apoyarnos del circulo cromatico.
+    (usar colores cercanos).
+
+    Otra NOTA: Se puede poner un valor de pixeles a linear-gradient para extender un color
+    (hasta que medida se hará un color puro, aunque esto podría hacer que no se vea el difuminado).
+
+
+    Otra nota: Se puede agregar el ángulo de esta forma:
+    - to top
+    - to right
+    - to bottom
+    - to left
+    - to top [left | right] (esquinas)
+    - to right [top | bottom] (esquinas)
+    - to bottom [left | right] (esquinas)
+    - to left [top | bottom] (esquinas)
+    - X deg (X cantidad de grados)
+
+31) radial-gradient
+    Es muy parecido a linear-gradient. Por defecto crea una elipse en el centro. Pero se puede
+    modificar:
+
+    radial-gradient( [radioX] [radioT] at [dirección], color1, color2, ...);
+
+    las direcciones pueden ser:
+    - at X Y
+    - at center center
+    - at (posición) ( posición)
+
+32) Gradientes repetidos (linear-gradient, radial-gradient)
+    Es una forma de repetir un degradado (algo como background-image: repeat)
+
+33) Unidades de medida
+    rem: 1 rem siempre es 16px
+    em: es una medida que toma la medida del padre. Por así decirlo es una unidad
+    responsiva. 100% recomendada antes que usar píxeles.
+
+34) Propiedades básicas de texto
+    font-size: tamaño de letra
+    font-style: normal | italic | (otros dependiendo la fuente)
+    font-weight: normal | bold | [número]
+    text-align: left | center | right | justify
+    line-height: altura de línea
+        - 1.3 se usa mucho para titulos
+        - 1.5 se usa para contenido
+    text-transform: uppercase | lowercase | capitalize
+    text-decoration: underline | line-trought | none
+        Es la línea que pasa por el texto
+        
+        underline: es el subrayado por defecto para <a>
+        line-trought: es el tachado, muy usado en precios/promociones
+        none: ninguno
+
 */
 
 
@@ -462,4 +604,58 @@
 
 .item:nth-child(3n){
     background: yellow;
+}
+
+.img{
+    display: inline-block;
+    width: 400px;
+    height: 300px;
+    border: 5px solid black;
+    background-color: yellow;
+    background-image: url('goku.jpeg');
+    background-size: 200px;
+    background-repeat: no-repeat;
+    
+    background-size: contain;
+    background-size: cover;
+
+
+    background-position: 5px 5px;
+}
+
+
+
+
+
+.bg-origin{
+    width: 200px;
+    height: 150px;
+    background: yellow;
+    border: 5px dashed black;
+
+    padding: 25px;
+    background-clip: content-box;
+}
+
+.bg-attachment{
+    margin-top: 5rem;
+    width: 200px;
+    height: 100px;
+    background: url(space.jpeg);
+    border: 5px solid black;
+    background-size: 300px;
+    background-attachment: fixed;
+}
+
+
+.bg-multiple{
+    margin-top: 5rem;
+    width: 600px;
+    height: 400px;
+    border: 5px solid black;
+    background: url(goku.jpeg),
+                url(space.jpeg),
+                yellow;
+    background-size: 50%, 70%, 100%;
+    background-repeat: no-repeat;
 }
