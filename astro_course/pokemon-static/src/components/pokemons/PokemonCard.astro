@@ -1,0 +1,14 @@
+---
+interface Props {
+    name: string,
+    url: string,
+}
+
+const {name, url} = Astro.props as Props;
+
+---
+
+<div class="bg-slate-700 p-4 rounded-lg shadow-md">
+    <h3 class="text-xl font-bold">{name}</h3>
+    <p class="text-sm text-slate-400">URL: {url}</p>
+</div>
