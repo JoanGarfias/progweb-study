@@ -1,6 +1,7 @@
 ---
 import type { PokemonListResponse } from '../interfaces/PokemonListResponse';
 import MainLayout from '../layouts/MainLayout.astro';
+import PokemonCard from '../components/pokemons/PokemonCard.astro';
 
 const resp = await fetch('https://pokeapi.co/api/v2/pokemon');
 const pokemons = await resp.json() as PokemonListResponse;
@@ -19,9 +20,9 @@ console.log(pokemons);
 
 		{
 			pokemons.results.map((pokemon) => {
-				return <li>{pokemon.name}</li>
+				return <PokemonCard name={pokemon.name} url={pokemon.url} id={pokemon.id} />
 			})
 		}
-		
+
 	</section>
 </MainLayout>

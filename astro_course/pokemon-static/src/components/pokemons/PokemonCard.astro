@@ -1,14 +1,18 @@
 ---
+
 interface Props {
     name: string,
     url: string,
+    id: number,
 }
 
-const {name, url} = Astro.props as Props;
+const {name, url, id} = Astro.props as Props;
+
+const PokemonImage = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/' + id + '.png';
 
 ---
 
 <div class="bg-slate-700 p-4 rounded-lg shadow-md">
+    <img src={PokemonImage} alt={name} class="w-full h-32 object-cover rounded-md mb-2" />
     <h3 class="text-xl font-bold">{name}</h3>
-    <p class="text-sm text-slate-400">URL: {url}</p>
 </div>
