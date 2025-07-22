@@ -1,6 +1,7 @@
 <?php
     /* Un array contiene un gruupo de datos relacionados
      * 
+     *  count() es una función que nos permite contar la cantidad de elementos de un array
      */
 
     $estudiantes = [    'Joan',
@@ -9,9 +10,11 @@
                         'Maria',
                         'Luis'
                     ];
+    $estudiantesCount = count($estudiantes);
 
     echo "El primer estudiante es: {$estudiantes[0]} <br>";
     echo json_encode($estudiantes);
+    echo "<br>Hay {$estudiantesCount} estudiantes registrados <br>";
     echo "<br><br>";
 
     $productos = [
