@@ -1,14 +1,10 @@
-<?php
+# Herencia en PHP
 
+Se crea una clase padre y en la clase hijo se usa la palabra reservada "extends".
 
-class ProgrammingLenguage{
-    public $nombre;
-    public $dominio;
-    public function __construct($nombre, $dominio = 0.0){
-        $this->nombre = $nombre;
-        $this->dominio = $dominio;
-    }
-}
+# Usando parent::__construct para llamar al constructor del padre
+
+```php
 class Persona {
     public $nombre;
     public $edad;
@@ -31,6 +27,4 @@ class Programador extends Persona{
         $this->mouse = $mouse;
     }
 }
-
-$joan = new Programador("K555", "G203", "Joan", 21);
-print_r($joan);
+```
