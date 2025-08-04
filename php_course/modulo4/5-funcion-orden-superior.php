@@ -45,6 +45,8 @@ show($mul, 3, 5);
 
 
 
+//Otro ejempl
+
 
 $square = function(float $n): float{
     return $n * $n;
