@@ -123,13 +123,15 @@ return new class extends Migration
 
 # Modificar una tabla existente con Migraciones en Laravel
 
+
+> Comando
 ```bash
 php artisan make:migration add_price_to_product_table --table=product
 ```
 > [!NOTE]
 > Con este comando Laravel sabrá que haremos cambios sobre la tabla `product`.
 
-
+> Código
 ```php
 <?php
 
@@ -180,3 +182,227 @@ php artisan migrate:reset
 ```
 
 # Llaves foraneas en migraciones
+
+> Comando
+```bash
+php artisan make:migration add_category_id_to_product_table --table=product
+```
+
+> Código
+
+```php
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    public function up(): void
+    {
+        Schema::table('product', function (Blueprint $table) {
+            //Debe tener el mismo tipo de datos que los id (llaves primarias)
+            $table->unsignedBigInteger("category_id")->nullable();
+            $table->foreign("category_id")
+                    ->references("id")->on("category")
+                    ->onDelete("set null"); /* Qué se hace al eliminar un registro de category en el campo de llave foranea de product */
+        });
+    }
+
+    public function down(): void
+    {
+        Schema::table('product', function (Blueprint $table) {
+            $table->dropForeign(["category_id"]);
+            $table->dropColumn("category_id");
+        });
+    }
+};
+
+```
+
+
+
+# Seeders en Laravel
+
+Sirven para poblar las base de datos
+
+> Comando
+```bash
+php artisan make:seeder CategoryTable
+```
+
+> Código
+```php
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+
+class CategoryTable extends Seeder
+{
+    /**
+     * Run the database seeds.
+     */
+    public function run(): void
+    {
+        //Este objeto es código directo en la BD, no es optimo usarlo en otros códigos
+        DB::table("category")->insert([
+
+            [
+                'name' => 'Comida',
+            ],
+            [
+                'name' => 'Bebida',
+            ],
+            [
+                'name' => 'Alcohol',
+            ],
+
+        ]);
+    }
+}
+```
+
+> [!IMPORTANT]
+> Tambien hay que tomar en cuenta el archivo *DatabaseSeeder.php* ya que ese control que seeders se ejecutan al momento de ejecutar los seeders.
+
+```php
+<?php
+namespace Database\Seeders;
+
+use App\Models\User;
+// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
+use Database\Seeders\CategoryTableSeeder;
+
+class DatabaseSeeder extends Seeder
+{
+    /**
+     * Seed the application's database.
+     */
+    public function run(): void
+    {
+        // User::factory(10)->create();
+
+        User::factory()->create([
+            'name' => 'Test User',
+            'email' => 'testssyy@example.com',
+        ]);
+
+        $this->call([
+            CategoryTableSeeder::class,
+            //Podemos usar más seeders...
+        ]);
+    }
+}
+
+```
+
+# Ejecutar los Seeders
+
+```bash
+php artisan db:seed
+```
+
+# Resetear base de datos
+```bash
+php artisan migrate:fresh --seed
+```
+> [!IMPORTANT]
+> Esto borrará todas las tablas y ejecutará los seeders.
+
+
+# Seeders y llaves foraneas
+Supongamos que queremos insertar datos en una tabla pero que tiene una columna que es llave foranea, entonces podemos apoyarnos del Fascades DB y un par de funciones de PHP
+como rand() y array_rand() para llenar los datos cuidando la consistencia.
+
+> Comando
+
+> [!NOTE]
+> Esto ejecuta solo un seeder en especifico
+```bash
+php artisan db:seed --class=ProductTableSeeder
+```
+
+> Código
+
+```php
+<?php
+namespace Database\Seeders;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+class ProductTableSeeder extends Seeder
+{
+    public function run(): void
+    {
+        //Pluck genera un arrat de valores, sin los ids (llaves)
+        $categoryIds = DB::table("category")->pluck("id")->toArray();
+        if(empty($categoryIds)){
+            $this->command->warn("No hay categorias");
+            return;
+        }
+
+        $products = [];
+
+        for($i = 1; $i <= 50; $i++){
+            $products[] = [
+                'name' => "Producto " . $i,
+                'description' => "Descripción del producto " . $i,
+                'price' => rand(100,1000), //Genera un numero aleatorio entre 100 y 1000
+                'category_id' => $categoryIds[array_rand($categoryIds)], //Devuelve un valor aleatorio dentro del array
+            ];
+        }
+
+
+        DB::table("product")->insert($products); //Inserta de forma masiva los datos
+    }
+}
+```
+
+
+# Seeders con datos aleatorios generados con Faker
+
+> Comando
+```bash
+php artisan db:seed --class=ProductTableSeederFaker
+```
+
+> Código
+
+```php
+<?php
+namespace Database\Seeders;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Faker\Factory as Faker;
+
+class ProductTableSeederFaker extends Seeder
+{
+    public function run(): void
+    {
+        $faker = Faker::create();
+        $categoryIds = DB::table('category')->pluck("id")->toArray();
+
+        $persons = [];
+
+        for($i = 150 ; $i <= 333; $i++){
+            $persons[] = [
+                'name' => $faker->word(),
+                'description' => $faker->sentence(),
+                'price' => $faker->randomFloat(3, 5, 999),
+                'category_id' => $faker->randomElement($categoryIds),
+                'created_at' => now(),
+                'updated_at' => now(),
+            ];
+        }
+
+        DB::table('product')->insert($persons);
+    }
+}
+```
