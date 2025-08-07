@@ -406,3 +406,188 @@ class ProductTableSeederFaker extends Seeder
     }
 }
 ```
+
+
+
+# Factories en PHP Laravel
+
+Las factories son para meter información de manera masiva sin hacerlo de forma manual (como los seeders)
+
+Para usar las factories requerimos a los modelos. 
+
+# Modelos en PHP Laravel
+Son una representación de una tabla de la base de datos.
+
+```bash
+php artisan make:model "nombre"
+```
+
+De esta forma solo le indicamos en la clase el nombre de la tabla en la base de datos.
+```php
+<?php
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class product extends Model
+{
+    protected $table = 'product';
+}
+```
+
+# Sobre modelos en PHP Laravel
+Cuando usamos Eloquent la información la podemos proteger.
+Es decir, le podemos decir al ORM qué datos van a poder ser rellenados de forma masiva.
+
+Esto significa que ciertos campos no puedes meterlos con el modelo.
+
+# Proteger atributos de inserciones masivas con Eloquent ORM
+Para proteger ciertos campos de la base de datos podemos indicar en el modelo cúales son los campos que SI pueden ser llenados
+de forma masiva.
+
+De la siguiente forma:
+```php
+<?php
+namespace App\Models;
+use Illuminate\Database\Eloquent\Model;
+
+class product extends Model
+{
+    protected $table = 'product';
+    protected $fillable = [ /**Determina cuales son los campos que se pueden insertar de forma masiva, los que no aparezcan acá no podrán ser rellenados
+        Eloquent ORM ya gestiona esto */
+        'name',
+        'price',
+        'description',
+        'category_id',
+    ];
+}
+```
+
+
+# Llaves foraneas en Eloquent ORM
+
+Para indicar que un atributo pertenece a otra tabla o está conectado/depende de otra tabla podemos utilizar la función `belongsTo()` que significa `pertenece a`.
+Debemos usarla dentro de una función del modelo que contiene la llave foranea.
+
+```php
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class product extends Model
+{
+    protected $table = 'product';
+    protected $fillable = [
+        'name',
+        'price',
+        'description',
+        'category_id', //Este atributo es una llave foranea, esto proviene de la tabla Category
+    ];
+
+    public function category(){ /**Con esto le decimos a Eloquent que nuestro atributo category pertenece a otra tabla, en este caso otro modelo llamado Category */
+        return $this->belongsTo(Category::class);
+        //Tomar en cuenta que también se debe configurar la relación en la tabla Category.
+    }
+}
+```
+
+# Relación 1:M en Eloquent ORM
+
+Cuando una tabla da su atributo id como llave foranea para otras tablas entonces quiere decir que es una relación 1:M y esto se tiene que definir para que Eloquent
+sepa cómo manejarlo. Esto se logra con el metodo `hasMany()`. De la siguiente manera:
+
+```php
+<?php
+namespace App\Models;
+use Illuminate\Database\Eloquent\Model;
+class Category extends Model
+{
+    protected $table = 'category';
+    protected $fillable = [
+        'name',
+    ];
+
+    public function products(){
+        return $this->hasMany(Product::class);
+    }
+}
+```
+
+
+# Trabajando con Factories
+
+Lo primero que debemos hacer para trabajar con Factories es configurar los modelos para usar las Factories, de la siguiente forma:
+
+```php
+<?php
+namespace App\Models;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Database\Eloquent\Factories\HasFactory; // Esto es necesario para usar las fábricas de Eloquent
+class Product extends Model
+{
+    use HasFactory; //Esto es necesario para usar las fábricas de Eloquent
+    protected $table = 'product';
+    protected $fillable = [
+        'name',
+        'price',
+        'description',
+        'category_id',
+    ];
+    public function category(){
+        return $this->belongsTo(Category::class);
+    }
+}
+```
+
+Luego debemos crear nuestro factory, algo como:
+```bash
+php artisan make:factory CategoryFactory
+```
+
+Después definimos qué modelo usaremos dentro de la Factory.
+> CategoryFactory.php
+
+```php
+<?php
+
+namespace Database\Factories;
+
+use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\Category; //Esto es necesario para usar las fábricas de Eloquent, debemos indicar el modelo que estamos creando
+
+class CategoryFactory extends Factory
+{
+    protected $model = Category::class; //Esto es necesario para usar las fábricas de Eloquent
+    public function definition(): array
+    {
+        return [
+            'name' => $this->faker->word(),
+        ];
+    }
+}
+```
+
+# Ejecutar un Factory
+Debemos modificar el archivo `DatabaseSeeder.php` el mismo que usamos para los Seeders, pero ahora manejaremos las factories ahí mismo.
+La factory se maneja desde el modelo, por lo que debemos importar primero el modelo y luego buscar su metodo `::factory()` y usar los metodos necesarios
+para el registro.
+```php
+<?php
+namespace Database\Seeders;
+use Illuminate\Database\Seeder;
+use App\Models\Category; //Esto es necesario ya que el metodo ::factory() viene en el modelo
+
+class DatabaseSeeder extends Seeder
+{
+    public function run(): void
+    {
+        Category::factory(10)->create(); //Con esto indicamos que nos cree 10 registros. La lógica viene incrustrada dentro del metodo create()
+    }
+}
+```
+
+# Crear factories con relaciones

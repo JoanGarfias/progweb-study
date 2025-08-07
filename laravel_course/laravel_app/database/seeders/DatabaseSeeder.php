@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Database\Seeder;
 use Database\Seeders\CategoryTableSeeder;
 use Database\Seeders\ProductTableSeeder;
+use App\Models\Category;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,16 +17,11 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // User::factory(10)->create();
-
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'testssyy@example.com',
-        ]);
-
-        $this->call([
-            CategoryTableSeeder::class,
-            ProductTableSeeder::class,
-            //Podemos usar más seeders...
-        ]);
+        Category::factory(10)->create();
+        // $this->call([
+        //     CategoryTableSeeder::class,
+        //     ProductTableSeeder::class,
+        //     //Podemos usar más seeders...
+        // ]);
     }
 }
