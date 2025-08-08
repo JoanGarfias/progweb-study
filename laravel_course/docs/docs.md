@@ -590,4 +590,47 @@ class DatabaseSeeder extends Seeder
 }
 ```
 
-# Crear factories con relaciones
+# Eloquent ORM
+
+Suponiendo que tenemos un model "Product" hay varios metodos que podemos usar
+```php Product::all()```
+> [!NOTE]
+> Obtiene todos los productos.
+
+```php Product::find($id)```
+> [!NOTE]
+> Filtra por id, si no se encuentra devuelve `null`.
+
+# Select de SQL en Eloquent
+Eloquent trae un metodo llamado `select` el cual podemos usar para seleccionar qué columnas queremos usar.
+```php
+public function getNames(){
+    $products = Product::select('name')
+                            ->get();
+    return response()->json($products);
+}
+```
+
+# ORDER BY de SQL en Eloquent
+Podemos ordenar por un campo en especifico con eloquent gracias a la función `orderBy()`.
+```php
+public function getNames(){
+    $products = Product::select('name')
+                            ->orderBy('name', 'desc') //Esto también puede ser "asc"
+                            ->get();
+    return response()->json($products);
+}
+```
+
+# WHERE de SQL en Eloquent (filtrar datos)
+
+```
+public function searchName(string $name, float $price){
+    $products = Product::select("name", "price", "description")
+                            ->where("name", $name) //Por defecto el operador es "="
+                            ->where("price", ">", $price)
+                            ->orderBy("price", "asc")
+                            ->get();
+    return response()->json($products);
+}
+```
