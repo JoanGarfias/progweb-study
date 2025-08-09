@@ -22,3 +22,13 @@ Route::get("/products/{id}", [QueriesController::class, 'getById']);
 
 Route::get("/query/method/names", [QueriesController::class, 'getNames']);
 Route::get("/query/method/search/{name}/{price}", [QueriesController::class, "searchName"]);
+
+Route::get("/query/method/searchString/{value}", [QueriesController::class, "searchString"]);
+Route::get("/query/method/searchProductNameDesc/{value}", [QueriesController::class, "searchProductPerNameDesc"]);
+
+
+Route::post("/query/method/advancedSearch", [QueriesController::class, "advancedSearch"]);
+
+Route::get("/query/method/join", [QueriesController::class, 'join']);
+
+Route::get("/query/method/groupby", [QueriesController::class, 'groupBy']);

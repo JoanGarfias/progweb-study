@@ -634,3 +634,63 @@ public function searchName(string $name, float $price){
     return response()->json($products);
 }
 ```
+
+# LIKE de SQL en Eloquent
+
+```php
+public function searchString(string $value){
+    $products = Product::select("name", "price")
+                        ->where("name", "like", "%{$value}%")
+                        ->get();
+    return response()->json($products);
+}
+```
+
+> [!NOTE]
+> En los likes si usamos `%{valor}` quiere decir que termina con `valor`
+> Si usamos `valor%` quiere decir que debe empezar con `valor`
+> Si usamos `%valor%` buscará palabras que tengan el patrón `valor` en cualquier parte.
+
+
+# OR de SQL en Eloquent con orWhere()
+```php
+public function searchProductPerNameDesc(string $value){
+    $products = Product::select("name", "description")
+                        ->where("name", "like", "%{$value}%")
+                        ->orWhere("description", "like", "%{$value}%")
+                        ->get();
+    return response()->json($products);
+}
+```
+
+
+# JOINS entre tablas
+
+```php
+public function join(){
+        $products = Product::select("product.name as nombre", "category.name as categoria")
+                            ->join("category", "product.category_id", "=", "category.id")
+                            ->get();
+        return response()->json($products);
+}
+```
+
+> [!NOTE]
+> Si queremos todos los atributos de una tabla solo ponemos `tabla.*` en un select con Eloquent
+
+
+# GROUP BY de SQL en Eloquent
+
+```php
+public function groupBy(){
+    $products = Product::select("category.name as categoria", "category.id as id_categoria", DB::raw("COUNT(product.id) as total"))
+                        ->join("category", "product.category_id", "=", "category.id")
+                        ->groupBy("category.id", "category.name")
+                        ->orderBy("category.name")
+                        ->get();
+    return response()->json($products);
+}
+```
+
+> [!NOTE]
+> Es importante tomar en cuenta que groupBY necesita una función
