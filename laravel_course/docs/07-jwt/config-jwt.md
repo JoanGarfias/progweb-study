@@ -22,3 +22,19 @@ php artisan jwt:secret
 
 > [!NOTE]
 > Esto genera una clave en el `.env` de forma aleatoria.
+
+
+# Parámetros de `config/jwt.php`
+
+
+### algo
+Es el algoritmo que se usa para encriptar, normalmente será `H256` pero
+en proyectos legacy puede ser diferente.
+
+### ttl
+Tiempo de expiración del token
+```php
+'ttl' => env('JWT_TTL', 60),
+```
+> [!NOTE]
+> Este TTL está configurado para 60 minutos
